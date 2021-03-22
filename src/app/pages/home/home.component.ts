@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { WordpressApiService } from '../../shared/wordpress-api/wordpress-api.service';
 
 @Component({
   selector: 'app-home',
@@ -7,9 +8,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeComponent implements OnInit {
 
-  constructor() { }
+  constructor(private readonly wordpressApiService: WordpressApiService) { }
 
   ngOnInit(): void {
+    this.wordpressApiService.getMain();
   }
 
 }
