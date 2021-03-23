@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { WordpressApiService } from '../../shared/wordpress-api/wordpress-api.service';
+import {Post} from '../../shared/wordpress-api/post';
+import {Subject} from 'rxjs';
 
 @Component({
   selector: 'app-home',
@@ -8,10 +10,13 @@ import { WordpressApiService } from '../../shared/wordpress-api/wordpress-api.se
 })
 export class HomeComponent implements OnInit {
 
-  constructor(private readonly wordpressApiService: WordpressApiService) { }
+  post$: Subject<Post> = new Subject<Post>();
+
+  constructor(readonly wordpressApiService: WordpressApiService) { }
 
   ngOnInit(): void {
-    this.wordpressApiService.getMain();
+    this.wordpressApiService.getLastPost().subscribe((res) => {
+      this.post$.next(res);
+    });
   }
-
 }

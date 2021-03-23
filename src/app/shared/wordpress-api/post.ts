@@ -1,11 +1,4 @@
-class WordpressRenderedItem {
-  rendered = '';
-  protected = false;
-
-  constructor(values: Partial<WordpressRenderedItem> = {}) {
-    Object.assign(this, values);
-  }
-}
+import { WordpressRenderedItem } from './wordpress-rendered-item';
 
 export class Post {
   id = 0;
@@ -34,6 +27,10 @@ export class Post {
   template = '';
   format = '';
   categories = new Array<number>();
+
+  get renderedTitle(): string {
+    return this.title.rendered;
+  }
 
   constructor(values: Partial<WordpressRenderedItem> = {}) {
     Object.assign(this, values);

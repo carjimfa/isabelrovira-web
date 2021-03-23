@@ -7,6 +7,9 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 
 @NgModule({
   declarations: [ToolbarComponent],
+  exports: [
+    ToolbarComponent
+  ],
   imports: [
     CommonModule,
     MatToolbarModule

@@ -1,8 +1,10 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import {HttpClient, HttpParams} from '@angular/common/http';
 import { Post } from './post';
 import { Observable } from 'rxjs';
 import {environment} from '../../../environments/environment';
+import {map} from 'rxjs/operators';
+import {plainToClass} from 'class-transformer';
 
 @Injectable({
   providedIn: 'root'
@@ -13,12 +15,22 @@ export class WordpressApiService {
 
   getMain(): void {
     this.httpClient.get(`${environment.wordpressApiUrl}`).subscribe((res) => {
-      console.log(res);
       this.getPosts().subscribe((posts) => console.log(posts));
     });
   }
 
   getPosts(): Observable<Array<Post>> {
     return this.httpClient.get<Array<Post>>(`${environment.wordpressApiUrl}/wp/v2/posts`);
+  }
+
+  getLastPost(): Observable<Post> {
+    const params = new HttpParams({fromString: 'page=1&per_page=1'});
+    return this.httpClient.get<Array<Post>>(`${environment.wordpressApiUrl}/wp/v2/posts`, {params})
+      .pipe(
+        map((posts) => {
+          return posts[0];
+        }),
+        map((post) => plainToClass(Post, post))
+      );
   }
 }
