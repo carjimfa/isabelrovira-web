@@ -1,5 +1,8 @@
 .mat-toolbar {
-  h1 {
-    margin: 0 auto;
+  .toolbar {
+    &__title {
+      margin: 0 auto;
+      text-transform: lowercase;
+    }
   }
 }

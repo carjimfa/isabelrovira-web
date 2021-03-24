@@ -1,12 +1,7 @@
-<div *ngIf="(post$ | async) as post">
-  <mat-grid-list cols="1" [rowHeight]="'4:1'">
-    <mat-grid-tile
-      [colspan]="1"
-      [rowspan]="1"
-    >
-      <h1>{{post.renderedTitle}}</h1>
-    </mat-grid-tile>
-  </mat-grid-list>
+<div *ngIf="(post$ | async) as post" class="home">
+  <div>
+    <h1 class="mat-display-4 home__main-article__headline">{{post.renderedTitle}}</h1>
+  </div>
 </div>
 
 

@@ -1,0 +1,13 @@
+.home {
+  display: grid;
+  grid-column: 1fr;
+  * {
+    margin: 0 auto;
+    text-align: center;
+  }
+  &__main-article {
+    &__headline {
+      text-transform: uppercase;
+    }
+  }
+}
