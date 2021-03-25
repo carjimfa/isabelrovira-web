@@ -5,6 +5,7 @@ import { Observable } from 'rxjs';
 import {environment} from '../../../environments/environment';
 import {map} from 'rxjs/operators';
 import {plainToClass} from 'class-transformer';
+import {Media} from './media';
 
 @Injectable({
   providedIn: 'root'
@@ -32,5 +33,10 @@ export class WordpressApiService {
         }),
         map((post) => plainToClass(Post, post))
       );
+  }
+
+  getMedia(id: number): Observable<Media> {
+    return this.httpClient.get<Media>(`${environment.wordpressApiUrl}/wp/v2/media/${id}`)
+      .pipe(map((res) => plainToClass(Media, res)));
   }
 }

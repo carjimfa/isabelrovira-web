@@ -1,5 +1,5 @@
 <div *ngIf="(post$ | async) as post" class="home">
-  <div>
+  <div class="home__main-article" #mainArticle>
     <h1 class="mat-display-4 home__main-article__headline">{{post.renderedTitle}}</h1>
   </div>
 </div>

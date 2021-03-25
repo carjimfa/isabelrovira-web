@@ -1,13 +1,29 @@
 .home {
+  height: calc(100vh - 64px);
   display: grid;
-  grid-column: 1fr;
+  grid-template-columns: 1fr;
+  grid-gap: 10px;
+  grid-template-rows: 1fr;
+  justify-content: center;
+  align-items: center;
+
   * {
     margin: 0 auto;
     text-align: center;
   }
+
   &__main-article {
+    height: 100%;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr;
+    align-items: center;
+
     &__headline {
       text-transform: uppercase;
+      //TODO use material color instead of this
+      color: white;
+      font-weight: 500;
     }
   }
 }
