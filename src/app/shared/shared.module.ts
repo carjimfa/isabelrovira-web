@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ToolbarComponent } from './toolbar/toolbar.component';
 import { MatToolbarModule } from '@angular/material/toolbar';
+import {RouterModule} from '@angular/router';
 
 
 
@@ -10,9 +11,10 @@ import { MatToolbarModule } from '@angular/material/toolbar';
   exports: [
     ToolbarComponent
   ],
-  imports: [
-    CommonModule,
-    MatToolbarModule
-  ]
+    imports: [
+        CommonModule,
+        MatToolbarModule,
+        RouterModule
+    ]
 })
 export class SharedModule { }

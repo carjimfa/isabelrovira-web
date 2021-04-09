@@ -1,0 +1,21 @@
+.single-post {
+  display: grid;
+  justify-content: center;
+
+  &__header {
+    display: grid;
+    grid-template-columns: 1fr;
+
+    h1 {
+      text-transform: uppercase;
+      //TODO: use material color instead of this
+      color: white;
+      font-weight: 500;
+    }
+  }
+
+  &__content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+}
