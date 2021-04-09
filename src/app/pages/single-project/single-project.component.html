@@ -3,6 +3,10 @@
     <h1 class="mat-display-4">{{post.title.rendered}}</h1>
   </div>
   <div class="single-post__content">
+    <span *ngFor="let image of getImagesFromPost(post)">
+       <img [src]="image"/>
+    </span>
+
 
   </div>
 </div>

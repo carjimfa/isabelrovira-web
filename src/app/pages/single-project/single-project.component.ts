@@ -22,7 +22,32 @@ export class SingleProjectComponent implements OnDestroy {
 
     this.wordpressApiService.getSinglePost(id).pipe(
       takeUntil(this.destroyed$)
-    ).subscribe((post) => this.post$.next(post));
+    ).subscribe((post) => {
+            this.post$.next(post);
+    });
+  }
+
+  getImagesFromPost(post: Post): Array<string> {
+    const document = this.getParsedHtml(post.content.rendered);
+    return this.getImagesFromDocument(document);
+  }
+
+  getImagesFromDocument(htmlDocument: Document): Array<string> {
+    const response = new Array<string>();
+
+    for (let i = 0; i < htmlDocument.images.length; i++) {
+      const img = htmlDocument.images.item(i);
+      if (!!img) {
+        response.push(img.src);
+      }
+    }
+
+    return response;
+  }
+
+  getParsedHtml(source: string): Document {
+    const parser = new DOMParser();
+    return parser.parseFromString(source, 'text/html');
   }
 
   ngOnDestroy(): void {
