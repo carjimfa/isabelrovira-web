@@ -1,42 +1,64 @@
-import { Injectable } from '@angular/core';
-import { HttpClient, HttpParams } from '@angular/common/http';
-import { Post } from './post';
-import { Observable } from 'rxjs';
+import {Injectable} from '@angular/core';
+import {Post} from './post';
+import {Observable} from 'rxjs';
 import {environment} from '../../../environments/environment';
 import {map} from 'rxjs/operators';
 import {plainToClass} from 'class-transformer';
 import {Media} from './media';
+import {ApiService} from '../api.service';
+import {PostOrderByAttribute, PostRequestParams} from './post-request-params';
+import {Order} from '../order.enum';
 
 @Injectable({
   providedIn: 'root'
 })
 export class WordpressApiService {
-  private readonly postsUrl = `${environment.wordpressApiUrl}/wp/v2/posts`;
+  private readonly apiVersion = 'v2';
+  private readonly postsUrlSlug = 'posts';
+  private readonly mediaUrlSlug = 'media';
 
-  constructor(private readonly httpClient: HttpClient) { }
-
-  getPosts(): Observable<Array<Post>> {
-    return this.httpClient.get<Array<Post>>(`${environment.wordpressApiUrl}/wp/v2/posts`);
+  get postsEndpoint(): string {
+    return this.buildEndpointUrl(this.postsUrlSlug);
   }
 
-  getSinglePost(id: number): Observable<Post> {
-    return this.httpClient.get<Post>(`${this.postsUrl}/${id.toString()}`)
+  get mediaEndpoint(): string {
+    return this.buildEndpointUrl(this.mediaUrlSlug);
+  }
+
+  constructor(private readonly apiService: ApiService) { }
+
+  buildEndpointUrl(entityUrl: string): string {
+    return `${environment.wordpressApiUrl}/wp/${this.apiVersion}/${entityUrl}`;
+  }
+
+  getPosts(): Observable<Array<Post>> {
+    return this.apiService.getList<Post, PostRequestParams>(this.postsEndpoint);
+  }
+
+  getPostById(id: number | string): Observable<Post> {
+    return this.apiService.get<Post>(this.postsEndpoint, id.toString())
       .pipe(map((res) => plainToClass(Post, res)));
   }
 
   getLastPost(): Observable<Post> {
-    const params = new HttpParams({fromString: 'page=1&per_page=1'});
-    return this.httpClient.get<Array<Post>>(this.postsUrl, {params})
+    const params = new PostRequestParams({
+      page: 1,
+      per_page: 1,
+      orderBy: PostOrderByAttribute.date,
+      order: Order.Desc
+    });
+
+    return this.apiService.getList<Post, PostRequestParams>(this.postsEndpoint, params)
       .pipe(
         map((posts) => {
-          return posts[0];
+          return posts && posts.length ? posts[0] : null;
         }),
         map((post) => plainToClass(Post, post))
       );
   }
 
   getMedia(id: number): Observable<Media> {
-    return this.httpClient.get<Media>(`${environment.wordpressApiUrl}/wp/v2/media/${id}`)
+    return this.apiService.get<Media>(this.mediaEndpoint, id.toString())
       .pipe(map((res) => plainToClass(Media, res)));
   }
 }

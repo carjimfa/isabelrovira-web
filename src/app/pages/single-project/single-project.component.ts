@@ -20,7 +20,7 @@ export class SingleProjectComponent implements OnDestroy {
   ) {
     const id = route.snapshot.params.id;
 
-    this.wordpressApiService.getSinglePost(id).pipe(
+    this.wordpressApiService.getPostById(id).pipe(
       takeUntil(this.destroyed$)
     ).subscribe((post) => {
             this.post$.next(post);
