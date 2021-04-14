@@ -1,9 +1,12 @@
 import { WordpressRenderedItem } from './wordpress-rendered-item';
 import {WpEntity} from './wp-entity';
 import {Type} from 'class-transformer';
+import {PostAcf} from './post-acf';
 
 export class Post extends WpEntity {
-  content = new WordpressRenderedItem();
+  // https://stackoverflow.com/a/53791071/8058956
+  @Type(() => WordpressRenderedItem)
+  content: WordpressRenderedItem = new WordpressRenderedItem();
 
   excerpt = new WordpressRenderedItem();
 
@@ -17,6 +20,8 @@ export class Post extends WpEntity {
   format = '';
 
   categories = new Array<number>();
+
+  acf?: PostAcf;
 
   get renderedTitle(): string {
     return this.title.rendered;

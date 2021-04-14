@@ -4,6 +4,7 @@ import {WordpressApiService} from '../../shared/wordpress-api/wordpress-api.serv
 import {Post} from '../../shared/wordpress-api/post';
 import {Subject} from 'rxjs';
 import {takeUntil} from 'rxjs/operators';
+import {Project} from './single-project';
 
 @Component({
   selector: 'app-single-project',
@@ -11,7 +12,7 @@ import {takeUntil} from 'rxjs/operators';
   styleUrls: ['./single-project.component.scss']
 })
 export class SingleProjectComponent implements OnDestroy {
-  post$: Subject<Post> = new Subject<Post>();
+  project$: Subject<Project> = new Subject<Project>();
   destroyed$ = new Subject();
 
   constructor(
@@ -23,7 +24,15 @@ export class SingleProjectComponent implements OnDestroy {
     this.wordpressApiService.getPostById(id).pipe(
       takeUntil(this.destroyed$)
     ).subscribe((post) => {
-            this.post$.next(post);
+            this.project$.next(this.mapToProject(post));
+    });
+  }
+
+  mapToProject(post: Post): Project {
+    return new Project({
+      properties: post.acf,
+      title: post.title.rendered,
+      images: this.getImagesFromPost(post)
     });
   }
 
