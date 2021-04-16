@@ -14,6 +14,7 @@ import {Project} from './single-project';
 export class SingleProjectComponent implements OnDestroy {
   project$: Subject<Project> = new Subject<Project>();
   destroyed$ = new Subject();
+  windowWidth = 0;
 
   constructor(
     private readonly route: ActivatedRoute,
@@ -64,4 +65,7 @@ export class SingleProjectComponent implements OnDestroy {
     this.destroyed$.unsubscribe();
   }
 
+  onWindowResize($event: any): void {
+    this.windowWidth = $event.target.outerWidth;
+  }
 }

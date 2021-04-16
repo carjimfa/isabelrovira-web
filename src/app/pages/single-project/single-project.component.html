@@ -2,12 +2,17 @@
   <div class="single-post__header">
     <h1 class="mat-display-4">{{project.title}}</h1>
   </div>
-  <div class="single-post__content single-post__content-1-column">
-    <span class="single-post__content__properties mat-headline" *ngIf="project.properties">
+  <div class="single-post__properties" *ngIf="project.properties">
+    <span class="mat-headline">
       <p *ngIf="project.properties?.cliente"><strong>Client:</strong> {{project.properties?.cliente}}</p>
       <p *ngIf="project.properties?.maquillaje"><strong>Make-up artist:</strong> {{project.properties?.maquillaje}}</p>
       <p *ngIf="project.properties?.publicacion"><strong>Publicación:</strong> {{project.properties?.publicacion}}</p>
     </span>
+  </div>
+  <div class="single-post__content"
+       [class.single-post__content-1-column]="windowWidth <= 720"
+       [class.single-post__content-2-column]="windowWidth > 720"
+       (window:resize)="onWindowResize($event)">
     <span *ngFor="let image of project.images">
        <img [src]="image"/>
     </span>

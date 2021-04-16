@@ -11,8 +11,19 @@
     h1 {
       text-transform: uppercase;
       //TODO: use material font instead of this
-      font-weight: 500;
-      line-height: initial;
+      margin: 0;
+      -webkit-hyphens: auto;
+      -moz-hyphens: auto;
+      -ms-hyphens: auto;
+      hyphens: auto;
+    }
+  }
+
+  &__properties {
+    margin: 32px 0;
+    text-align: right;
+    p {
+      margin: 0;
     }
   }
 
@@ -24,13 +35,6 @@
         width: 100%;
         height: 100%;
         object-fit: cover;
-      }
-    }
-
-    &__properties {
-      text-align: right;
-      p {
-        margin: 0;
       }
     }
   }
