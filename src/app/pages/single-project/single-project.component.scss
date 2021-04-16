@@ -1,6 +1,7 @@
 .single-post {
   display: grid;
   justify-content: center;
+  margin: 16px;
 
   &__header {
     display: grid;
@@ -11,6 +12,7 @@
       text-transform: uppercase;
       //TODO: use material font instead of this
       font-weight: 500;
+      line-height: initial;
     }
   }
 
@@ -27,6 +29,9 @@
 
     &__properties {
       text-align: right;
+      p {
+        margin: 0;
+      }
     }
   }
 

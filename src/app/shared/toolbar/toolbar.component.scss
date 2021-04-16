@@ -1,6 +1,8 @@
-@import '~@angular/material/theming';
-
 .mat-toolbar {
+  .mat-toolbar-row {
+    margin: 16px auto;
+  }
+
   .toolbar {
     &__title {
       margin: 0 auto;

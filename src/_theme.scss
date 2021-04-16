@@ -11,6 +11,8 @@
 @import 'https://fonts.googleapis.com/css?family=Material+Icons';
 @import url('https://fonts.googleapis.com/css?family=Roboto:300,400,500');
 
+@import './components.theme';
+
 $fontConfig: (
   display-4: mat-typography-level(112px, 112px, 300, 'orpheuspro', -0.0134em),
   display-3: mat-typography-level(56px, 56px, 400, 'orpheuspro', -0.0089em),
@@ -248,3 +250,4 @@ $altTheme: mat-dark-theme($theme-primary, $theme-accent, $theme-warn);
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 
+@include components-theme($theme)

@@ -1,0 +1,6 @@
+@import '~@angular/material/theming';
+@import './app/shared/toolbar/toolbar.component.theme';
+
+@mixin components-theme($theme) {
+  @include toolbar-component($theme);
+}
