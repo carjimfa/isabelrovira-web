@@ -1,0 +1,8 @@
+<div>
+  <h1>Projects</h1>
+  <ng-container *ngIf="(posts$ | async) as posts">
+    <h1 *ngFor="let post of posts">
+      {{post.title.rendered}}
+    </h1>
+  </ng-container>
+</div>

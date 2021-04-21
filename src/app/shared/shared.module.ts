@@ -9,7 +9,10 @@ import { MatListModule } from '@angular/material/list';
 
 
 @NgModule({
-  declarations: [ToolbarComponent, MenuComponent],
+  declarations: [
+    ToolbarComponent,
+    MenuComponent
+  ],
   exports: [
     ToolbarComponent,
     MenuComponent

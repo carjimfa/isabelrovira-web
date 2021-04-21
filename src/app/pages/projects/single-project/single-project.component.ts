@@ -1,7 +1,7 @@
 import {Component, OnDestroy, OnInit} from '@angular/core';
 import {ActivatedRoute, Router} from '@angular/router';
-import {WordpressApiService} from '../../shared/wordpress-api/wordpress-api.service';
-import {Post} from '../../shared/wordpress-api/post';
+import {WordpressApiService} from '../../../shared/wordpress-api/wordpress-api.service';
+import {Post} from '../../../shared/wordpress-api/post';
 import {Subject} from 'rxjs';
 import {takeUntil} from 'rxjs/operators';
 import {Project} from './single-project';

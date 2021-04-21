@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {MatDialogRef} from '@angular/material/dialog';
+import {Router} from '@angular/router';
+import {PostRequestParams} from '../wordpress-api/post-request-params';
 
 @Component({
   selector: 'app-menu',
@@ -8,9 +10,23 @@ import {MatDialogRef} from '@angular/material/dialog';
 })
 export class MenuComponent {
 
-  constructor(private readonly dialogRef: MatDialogRef<MenuComponent>) { }
+  constructor(
+    private readonly dialogRef: MatDialogRef<MenuComponent>,
+    private readonly router: Router
+  ) { }
 
   closeMenu(): void {
     this.dialogRef.close();
+  }
+
+  goToEditorial(): void {
+    const params = new PostRequestParams({
+      categories: ['2']
+    });
+
+    this.router.navigate(['projects'], {
+      queryParams: params,
+      queryParamsHandling: 'merge'
+    });
   }
 }

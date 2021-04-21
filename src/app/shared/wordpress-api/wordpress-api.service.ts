@@ -31,8 +31,8 @@ export class WordpressApiService {
     return `${environment.wordpressApiUrl}/wp/${this.apiVersion}/${entityUrl}`;
   }
 
-  getPosts(): Observable<Array<Post>> {
-    return this.apiService.getList<Post, PostRequestParams>(this.postsEndpoint);
+  getPosts(params: PostRequestParams = {}): Observable<Array<Post>> {
+    return this.apiService.getList<Post, PostRequestParams>(this.postsEndpoint, params);
   }
 
   getPostById(id: number | string): Observable<Post> {

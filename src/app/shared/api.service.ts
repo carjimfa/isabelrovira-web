@@ -13,7 +13,6 @@ export class ApiService {
   }
 
   getList<TEntity, TParams>(endpoint: string, params?: TParams): Observable<Array<TEntity>> {
-    const httpParams = new HttpParams(params ?? {});
-    return this.httpClient.get<Array<TEntity>>(`${endpoint}`, {params: httpParams});
+    return this.httpClient.get<Array<TEntity>>(`${endpoint}`, {params: params || {}});
   }
 }
