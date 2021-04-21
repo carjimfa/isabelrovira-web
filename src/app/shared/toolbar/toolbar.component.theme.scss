@@ -3,7 +3,7 @@
 @mixin toolbar-component($theme) {
   $background: map-get($theme, background);
 
-  .mat-toolbar {
+  .toolbar.mat-toolbar {
     background-color: mat-color($background, background);
   }
 }

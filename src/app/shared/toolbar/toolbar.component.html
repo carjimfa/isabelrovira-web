@@ -1,7 +1,11 @@
 <mat-toolbar class="toolbar">
   <mat-toolbar-row>
+    <span class="toolbar__spacer-right"></span>
     <h1 class="toolbar__title mat-display-1">
       <a [routerLink]="'/'">Isabel Rovira</a>
     </h1>
+    <a (click)="openMenu()">
+      <img src="/assets/menu.svg"/>
+    </a>
   </mat-toolbar-row>
 </mat-toolbar>

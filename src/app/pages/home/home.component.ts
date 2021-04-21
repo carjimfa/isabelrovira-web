@@ -12,6 +12,8 @@ export class HomeComponent implements OnInit {
 
   post$: Subject<Post> = new Subject<Post>();
 
+  featuredImageSrc$ = new Subject<string>();
+
   @ViewChild('mainArticle')
   mainArticle?: ElementRef;
 
@@ -22,10 +24,7 @@ export class HomeComponent implements OnInit {
       this.post$.next(res);
       this.wordpressApiService.getMedia(res.featured_media).subscribe((featuredImage) => {
         if (this.mainArticle) {
-          this.mainArticle.nativeElement.style.backgroundImage = `url('${featuredImage.source_url}')`;
-          this.mainArticle.nativeElement.style.backgroundPosition = 'center';
-          this.mainArticle.nativeElement.style.backgroundRepeat = 'no-repeat';
-          this.mainArticle.nativeElement.style.backgroundSize = '60% auto';
+          this.featuredImageSrc$.next(featuredImage.source_url);
         }
       });
     });

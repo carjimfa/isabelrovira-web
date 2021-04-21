@@ -1,6 +1,11 @@
 <div *ngIf="(post$ | async) as post" class="home">
   <div class="home__main-article" #mainArticle>
-    <h1 class="mat-display-4 home__main-article__headline">{{post.renderedTitle}}</h1>
+    <ng-container *ngIf="(featuredImageSrc$ | async) as featuredImageSrc">
+      <img [src]="featuredImageSrc"/>
+    </ng-container>
+    <div class="home__main-article__headline">
+      <h1 class="mat-display-4">{{post.renderedTitle}}</h1>
+    </div>
   </div>
 </div>
 
