@@ -6,17 +6,20 @@ import { RouterModule } from '@angular/router';
 import { MenuComponent } from './menu/menu.component';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatListModule } from '@angular/material/list';
+import { ProjectCoverComponent } from './project-cover/project-cover.component';
 
 
 @NgModule({
   declarations: [
     ToolbarComponent,
-    MenuComponent
+    MenuComponent,
+    ProjectCoverComponent
   ],
-  exports: [
-    ToolbarComponent,
-    MenuComponent
-  ],
+    exports: [
+        ToolbarComponent,
+        MenuComponent,
+        ProjectCoverComponent
+    ],
     imports: [
       CommonModule,
       MatToolbarModule,

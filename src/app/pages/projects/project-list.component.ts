@@ -1,9 +1,9 @@
 import {Component, OnDestroy} from '@angular/core';
 import {ActivatedRoute, Router} from '@angular/router';
-import {PostRequestParams} from '../../shared/wordpress-api/post-request-params';
+import {PostRequestParams} from '../../core/wordpress-api/post-request-params';
 import {Subject} from 'rxjs';
-import {Post} from '../../shared/wordpress-api/post';
-import {WordpressApiService} from '../../shared/wordpress-api/wordpress-api.service';
+import {Post} from '../../core/wordpress-api/post';
+import {WordpressApiService} from '../../core/wordpress-api/wordpress-api.service';
 import {map, takeUntil} from 'rxjs/operators';
 import {plainToClass} from 'class-transformer';
 

@@ -1,4 +1,4 @@
-import { PostAcf } from '../../../shared/wordpress-api/post-acf';
+import { PostAcf } from './wordpress-api/post-acf';
 
 export class Project {
   title?: string;

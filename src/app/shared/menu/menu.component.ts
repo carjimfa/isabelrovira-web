@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {MatDialogRef} from '@angular/material/dialog';
 import {Router} from '@angular/router';
-import {PostRequestParams} from '../wordpress-api/post-request-params';
+import {PostRequestParams} from '../../core/wordpress-api/post-request-params';
 
 @Component({
   selector: 'app-menu',

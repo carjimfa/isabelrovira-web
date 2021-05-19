@@ -11,8 +11,11 @@ const routes: Routes = [
   },
   {
     path: 'projects',
-    component: ProjectListComponent,
     children: [
+      {
+        path: '',
+        component: ProjectListComponent
+      },
       {
         path: ':id',
         component: SingleProjectComponent
