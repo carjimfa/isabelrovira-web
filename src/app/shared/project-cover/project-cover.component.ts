@@ -13,6 +13,9 @@ export class ProjectCoverComponent implements OnInit {
   @Input()
   post: Post = new Post();
 
+  @Input()
+  styleHeight = 'calc(100vh - 96px)';
+
   featuredImageSrc$ = new Subject<string>();
 
   constructor(private readonly wordpressApiService: WordpressApiService) {}
