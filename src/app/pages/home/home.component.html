@@ -1,6 +1,7 @@
 <div *ngIf="(post$ | async) as post" class="home">
   <app-project-cover
     [post]="post"
+    [styleHeight]="'calc(100vh - 96px)'"
   ></app-project-cover>
 </div>
 

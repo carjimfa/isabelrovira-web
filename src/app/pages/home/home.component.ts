@@ -12,8 +12,6 @@ export class HomeComponent implements OnInit {
 
   post$: Subject<Post> = new Subject<Post>();
 
-  featuredImageSrc$ = new Subject<string>();
-
   @ViewChild('mainArticle')
   mainArticle?: ElementRef;
 
