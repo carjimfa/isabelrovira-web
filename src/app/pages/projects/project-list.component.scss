@@ -1,0 +1,11 @@
+.project-list {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr;
+  gap: 10px 10px;
+  grid-template-areas:
+    ".";
+  justify-content: center;
+  justify-items: center;
+  z-index: 1000;
+}

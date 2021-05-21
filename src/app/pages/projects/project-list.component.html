@@ -1,8 +1,21 @@
-<div>
-  <h1>Projects</h1>
+<div class="project-list">
+  <!--
+  ANIMACION LETRAS APARECIENDO 'DE ABAJO'
+  Hacemos que span tenga una altura máxima.
+  Hacemos que el span contenedor tenga overflow hidden.
+  Las convertimos en span individuales. En inicio tendrán margin y cada una sale con un retardo de 30ms más que la anterior.
+  Así cuando el keyframes se inicie, seubirán de manera ordenada.
+  https://codepen.io/jh3y/pen/WNrXqYz
+  https://codepen.io/robinrendle/pen/wvaxEMz
+  -->
+  <span>
+    <h1>Projects</h1>
+  </span>
   <ng-container *ngIf="(posts$ | async) as posts">
-    <h1 *ngFor="let post of posts">
-      {{post.title.rendered}}
-    </h1>
+    <div class="project-list__item" *ngFor="let post of posts">
+        <a [routerLink]="'/projects/'+post.id">{{post.title.rendered}}</a>
+        <div class="project-list__item__image">
+        </div>
+    </div>
   </ng-container>
 </div>

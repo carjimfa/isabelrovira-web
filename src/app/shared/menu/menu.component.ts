@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import {MatDialogRef} from '@angular/material/dialog';
 import {Router} from '@angular/router';
 import {PostRequestParams} from '../../core/wordpress-api/post-request-params';
@@ -13,7 +13,7 @@ export class MenuComponent {
   constructor(
     private readonly dialogRef: MatDialogRef<MenuComponent>,
     private readonly router: Router
-  ) { }
+  ) {}
 
   closeMenu(): void {
     this.dialogRef.close();
@@ -28,5 +28,7 @@ export class MenuComponent {
       queryParams: params,
       queryParamsHandling: 'merge'
     });
+
+    this.closeMenu();
   }
 }

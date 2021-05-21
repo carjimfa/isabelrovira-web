@@ -10,14 +10,14 @@ export class PostRequestParams {
   after?: Date;
   // tslint:disable-next-line:variable-name
   modified_after?: Date;
-  author?: Array<number> = [];
+  author?: Array<number>;
   // tslint:disable-next-line:variable-name
-  author_exclude?: Array<number> = [];
+  author_exclude?: Array<number>;
   before?: Date;
   // tslint:disable-next-line:variable-name
   modified_before?: Date;
-  exclude?: Array<number> = [];
-  include?: Array<number> = [];
+  exclude?: Array<number>;
+  include?: Array<number>;
   offset?: number;
   order?: Order = Order.Desc;
   orderBy?: PostOrderByAttribute = PostOrderByAttribute.date;
@@ -25,12 +25,12 @@ export class PostRequestParams {
   status?: PostStatus = PostStatus.publish;
   // tslint:disable-next-line:variable-name
   tax_relation?: LogicOperator;
-  categories?: Array<string> = [];
+  categories?: Array<string>;
   // tslint:disable-next-line:variable-name
-  categories_exclude?: Array<string> = [];
-  tags?: Array<string> = [];
+  categories_exclude?: Array<string>;
+  tags?: Array<string>;
   // tslint:disable-next-line:variable-name
-  tags_exclude?: Array<string> = [];
+  tags_exclude?: Array<string>;
   sticky?: boolean;
 
   constructor(values: Partial<PostRequestParams> = {}) {

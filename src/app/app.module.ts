@@ -7,6 +7,7 @@ import { PagesModule } from './pages/pages.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule } from '@angular/common/http';
 import { SharedModule } from './shared/shared.module';
+import { NgDialogAnimationService } from 'ng-dialog-animation';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,9 @@ import { SharedModule } from './shared/shared.module';
     HttpClientModule,
     SharedModule
   ],
-  providers: [],
+  providers: [
+    NgDialogAnimationService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
