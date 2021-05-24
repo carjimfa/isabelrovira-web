@@ -1,0 +1,10 @@
+.text-wrapper {
+  text-transform: uppercase;
+  height: 32px;
+  overflow: hidden;
+}
+
+.text-wrapper .letter {
+  display: inline-block;
+  line-height: 1em;
+}

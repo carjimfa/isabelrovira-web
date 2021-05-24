@@ -7,18 +7,21 @@ import { MenuComponent } from './menu/menu.component';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatListModule } from '@angular/material/list';
 import { ProjectCoverComponent } from './project-cover/project-cover.component';
+import { TextFadeInBottomComponent } from './text-fade-in-bottom/text-fade-in-bottom.component';
 
 
 @NgModule({
   declarations: [
     ToolbarComponent,
     MenuComponent,
-    ProjectCoverComponent
+    ProjectCoverComponent,
+    TextFadeInBottomComponent
   ],
     exports: [
         ToolbarComponent,
         MenuComponent,
-        ProjectCoverComponent
+        ProjectCoverComponent,
+        TextFadeInBottomComponent
     ],
     imports: [
       CommonModule,
