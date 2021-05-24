@@ -1,5 +1,4 @@
-import {AfterViewInit, Component, Input, OnInit} from '@angular/core';
-import {animate, animateChild, state, style, transition, trigger} from '@angular/animations';
+import {AfterViewInit, Component, Input } from '@angular/core';
 declare var anime: any;
 
 @Component({
@@ -10,6 +9,12 @@ declare var anime: any;
 export class TextFadeInBottomComponent implements AfterViewInit {
   @Input()
   text = '';
+
+  @Input()
+  height = 110;
+
+  @Input()
+  textClass = 'mat-display-4';
 
   get splitTextInHtml(): string {
     return this.text.split('').map((s) => {
