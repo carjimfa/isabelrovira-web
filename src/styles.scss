@@ -8,3 +8,8 @@ body {
   font-family: Roboto, "Helvetica Neue", sans-serif;
   background-color: mat-color($background, background)
 }
+
+.menu-container .mat-dialog-container {
+  margin: 0;
+  padding: 0;
+}

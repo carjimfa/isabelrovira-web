@@ -4,14 +4,18 @@
     <h1 class="menu__header__title mat-headline">Isabel Rovira</h1>
     <img src="assets/arrow.svg" style="width: 100%" (click)="closeMenu()">
   </div>
-  <mat-list class="menu__navigation">
-    <mat-list-item (click)="goToEditorial()"><a>editorial</a></mat-list-item>
-    <mat-list-item><a>commercial</a></mat-list-item>
-    <mat-list-item><a>lifestyle & portraits</a></mat-list-item>
-    <mat-list-item><a>personal</a></mat-list-item>
-    <mat-divider></mat-divider>
-    <mat-list-item><a>prints</a></mat-list-item>
-    <mat-divider></mat-divider>
-    <mat-list-item><a>about me</a></mat-list-item>
-  </mat-list>
+  <div class="menu__sides">
+    <div class="menu__sides__desktop-image">
+    </div>
+    <mat-list class="menu__sides__navigation">
+      <mat-list-item (click)="goToEditorial()"><a class="editorial">editorial</a></mat-list-item>
+      <mat-list-item><a class="commercial">commercial</a></mat-list-item>
+      <mat-list-item><a class="lifestyle">lifestyle & portraits</a></mat-list-item>
+      <mat-list-item><a class="personal">personal</a></mat-list-item>
+      <mat-divider></mat-divider>
+      <mat-list-item><a class="prints">prints</a></mat-list-item>
+      <mat-divider></mat-divider>
+      <mat-list-item><a class="about">about me</a></mat-list-item>
+    </mat-list>
+  </div>
 </div>

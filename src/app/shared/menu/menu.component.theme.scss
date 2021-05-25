@@ -16,14 +16,17 @@
       background-color: mat-color($foreground, text);
     }
 
-    &__navigation.mat-list {
-      .mat-list-item {
-        color: mat-color($background, background);
-      }
+    &__sides {
+      &__navigation.mat-list {
+        .mat-list-item {
+          color: mat-color($background, background);
+        }
 
-      .mat-divider {
-        border-top-color: mat-color($background, background);
+        .mat-divider {
+          border-top-color: mat-color($background, background);
+        }
       }
     }
+
   }
 }

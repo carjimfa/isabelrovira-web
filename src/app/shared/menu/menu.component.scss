@@ -1,3 +1,5 @@
+$breakpoint-tablet: 768px;
+
 .menu {
   max-width: 100%;
   max-height: 100%;
@@ -5,9 +7,15 @@
   height: 100%;
   border-radius: 0;
 
+  background-image: url('../../../assets/slack-imgs-1@2x.jpg');
+  background-size: 50% auto;
+  background-position: left top;
+  background-repeat: no-repeat;
+
   &__header {
     display: grid;
     grid-template-columns: 32px 1fr 32px;
+    padding: 16px 32px 0 32px;
 
     &__title {
       text-align: center;
@@ -15,17 +23,42 @@
     }
   }
 
-  &__navigation {
+  &__sides {
     display: grid;
-    align-items: center;
-    justify-content: center;
+    grid-template-columns: 1fr;
     margin: 0 auto;
-  }
+    width: 100%;
 
-  &__navigation.mat-list {
-    .mat-list-item {
-      ::ng-deep .mat-list-item-content {
-        justify-content: center;
+    @media (min-width: $breakpoint-tablet) {
+      grid-template-columns: 50% 50%;
+    }
+
+    &__desktop-image {
+      width: 0%;
+      height: 0%;
+
+      @media (min-width: $breakpoint-tablet) {
+        width: 100%;
+        height: calc(100vh - 76px);
+      }
+    }
+
+    &__navigation {
+      @media (min-width: $breakpoint-tablet) {
+        width: 100%;
+      }
+    }
+
+    &__navigation.mat-list {
+      .mat-divider {
+        margin-left: 25%;
+        max-width: 50%;
+      }
+
+      .mat-list-item {
+        ::ng-deep .mat-list-item-content {
+          justify-content: center;
+        }
       }
     }
   }

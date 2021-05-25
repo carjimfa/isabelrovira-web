@@ -1,7 +1,6 @@
-import { Component, OnInit } from '@angular/core';
-import { MatDialog } from '@angular/material/dialog';
+import { Component } from '@angular/core';
 import { MenuComponent } from '../menu/menu.component';
-import {NgDialogAnimationService} from 'ng-dialog-animation';
+import { NgDialogAnimationService } from 'ng-dialog-animation';
 
 @Component({
   selector: 'app-toolbar',
@@ -20,7 +19,7 @@ export class ToolbarComponent {
       maxWidth: '100vw',
       maxHeight: '100vh',
       hasBackdrop: false,
-      panelClass: 'menu',
+      panelClass: 'menu-container',
       animation: {
        incomingOptions: {
          keyframes: [
