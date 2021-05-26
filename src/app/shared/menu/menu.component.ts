@@ -45,12 +45,25 @@ export class MenuComponent implements AfterViewInit {
           translateZ: 0,
           opacity: [0, 1],
           easing: 'easeOutExpo',
-          duration: 1200,
+          duration: 750,
           delay: (el: any, i: any) => {
             return 200 + 10 * i;
           },
         });
     });
+
+    anime.timeline({loop: false})
+      .add({
+        targets: `mat-divider`,
+        translateY: [40, 0],
+        translateZ: 0,
+        opacity: [0, 1],
+        easing: 'easeOutExpo',
+        duration: 750,
+        delay: (el: any, i: any) => {
+          return 250;
+        },
+      });
   }
 
   closeMenu(): void {
