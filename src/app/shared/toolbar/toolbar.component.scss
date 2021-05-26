@@ -13,6 +13,18 @@
       }
     }
 
+    &__menu-button {
+      a {
+        display: grid;
+        justify-content: center;
+        width: 77px;
+
+        img {
+          width: auto;
+        }
+      }
+    }
+
     &__spacer-right {
       width: 77px;
     }

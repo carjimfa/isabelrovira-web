@@ -2,6 +2,7 @@ import {AfterViewInit, Component} from '@angular/core';
 import {MatDialogRef} from '@angular/material/dialog';
 import {Router} from '@angular/router';
 import {PostRequestParams} from '../../core/wordpress-api/post-request-params';
+import {MenuService} from './menu.service';
 declare var anime: any;
 
 @Component({
@@ -12,18 +13,9 @@ declare var anime: any;
 export class MenuComponent implements AfterViewInit {
 
   constructor(
-    private readonly dialogRef: MatDialogRef<MenuComponent>,
-    private readonly router: Router
+    private readonly router: Router,
+    private readonly menuService: MenuService
   ) {}
-
-  divideInSpan(): void {
-    const textWrappers = document.querySelectorAll('.menu__sides__navigation mat-list-item a');
-    textWrappers.forEach((e) => {
-      if (!!e && !!e.textContent) {
-        e.innerHTML = e.textContent.replace(/\S/g, '<span class=\'letter\' style=\'display:inline-block;\'>$&</span>');
-      }
-    });
-  }
 
   ngAfterViewInit(): void {
     this.divideInSpan();
@@ -64,10 +56,27 @@ export class MenuComponent implements AfterViewInit {
           return 250;
         },
       });
+
+    anime.timeline({loop: false})
+      .add({
+        targets: `app-toolbar`,
+        opacity: [0, 1],
+        easing: 'easeOutExpo',
+        duration: 1200
+      });
+  }
+
+  divideInSpan(): void {
+    const textWrappers = document.querySelectorAll('.menu__sides__navigation mat-list-item a');
+    textWrappers.forEach((e) => {
+      if (!!e && !!e.textContent) {
+        e.innerHTML = e.textContent.replace(/\S/g, '<span class=\'letter\' style=\'display:inline-block;\'>$&</span>');
+      }
+    });
   }
 
   closeMenu(): void {
-    this.dialogRef.close();
+    this.menuService.close();
   }
 
   goToEditorial(): void {

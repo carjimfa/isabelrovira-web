@@ -1,11 +1,14 @@
-<mat-toolbar class="toolbar">
+<mat-toolbar class="toolbar" [class.dark]="menuService.isOpened">
   <mat-toolbar-row>
     <span class="toolbar__spacer-right"></span>
     <h1 class="toolbar__title mat-display-1">
       <a [routerLink]="'/'">Isabel Rovira</a>
     </h1>
-    <a (click)="openMenu()">
-      <img src="/assets/menu.svg"/>
-    </a>
+    <span class="toolbar__menu-button">
+      <a (click)="onMenuButtonClicked()">
+        <img *ngIf="!(menuService.isOpened$ | async)" src="/assets/menu.svg"/>
+        <img *ngIf="(menuService.isOpened$ | async)" src="/assets/arrow.svg"/>
+      </a>
+    </span>
   </mat-toolbar-row>
 </mat-toolbar>

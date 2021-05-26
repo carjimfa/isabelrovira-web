@@ -2,8 +2,9 @@
 
 @mixin toolbar-component($theme) {
   $background: map-get($theme, background);
+  $foreground: map-get($theme, foreground);
 
   .toolbar.mat-toolbar {
-    background-color: mat-color($background, background);
+    background-color: transparent;
   }
 }

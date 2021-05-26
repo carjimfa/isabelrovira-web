@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { MenuComponent } from '../menu/menu.component';
 import { NgDialogAnimationService } from 'ng-dialog-animation';
+import {MenuService} from '../menu/menu.service';
 
 @Component({
   selector: 'app-toolbar',
@@ -9,33 +10,22 @@ import { NgDialogAnimationService } from 'ng-dialog-animation';
 })
 export class ToolbarComponent {
 
-  constructor(private readonly dialog: NgDialogAnimationService) {
+  constructor(readonly menuService: MenuService) {
   }
 
-  openMenu(): void {
-    this.dialog.open(MenuComponent, {
-      width: '100vw',
-      height:  '100vh',
-      maxWidth: '100vw',
-      maxHeight: '100vh',
-      hasBackdrop: false,
-      panelClass: 'menu-container',
-      animation: {
-       incomingOptions: {
-         keyframes: [
-           { opacity: '0' },
-           { opacity: '1' }
-         ],
-         keyframeAnimationOptions: { easing: 'ease-in-out', duration: 500 }
-       },
-               outgoingOptions: {
-         keyframes: [
-           { opacity: '1' },
-           { opacity: '0' }
-         ],
-         keyframeAnimationOptions: { easing: 'ease-in-out', duration: 500 }
-       }
-     },
-    });
+  onMenuButtonClicked(): void {
+    if (this.menuService.isOpened) {
+      this.closeMenu();
+    } else {
+      this.openMenu();
+    }
+  }
+
+  private openMenu(): void {
+    this.menuService.open();
+  }
+
+  private closeMenu(): void {
+    this.menuService.close();
   }
 }
