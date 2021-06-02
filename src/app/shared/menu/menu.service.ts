@@ -1,19 +1,26 @@
 import { Injectable } from '@angular/core';
 import { MenuComponent } from './menu.component';
 import { NgDialogAnimationService } from 'ng-dialog-animation';
-import {MatDialogRef} from '@angular/material/dialog';
-import {BehaviorSubject} from 'rxjs';
+import { MatDialogRef } from '@angular/material/dialog';
+import { BehaviorSubject } from 'rxjs';
+import { WordpressApiService } from '../../core/wordpress-api/wordpress-api.service';
+import { MenuItem } from '../../core/wordpress-api/menu-item';
 
 @Injectable({providedIn: 'root'})
 export class MenuService {
   isOpened$ = new BehaviorSubject<boolean>(false);
+  menuItems = new Array<MenuItem>();
+
   private _dialogRef?: MatDialogRef<MenuComponent>;
 
   get isOpened(): boolean {
     return this.isOpened$.value;
   }
 
-  constructor(private readonly dialog: NgDialogAnimationService) {}
+  constructor(
+    private readonly dialog: NgDialogAnimationService,
+    private readonly wordpressApiService: WordpressApiService
+  ) {}
 
   open(): void {
     this.openMenuDialog();
@@ -23,6 +30,13 @@ export class MenuService {
   close(): void {
     this._dialogRef?.close();
     this.isOpened$.next(false);
+  }
+
+  getMenuItems(): void {
+    this.wordpressApiService.getMenuItems()
+      .subscribe((res) => {
+        this.menuItems = res;
+      });
   }
 
   private openMenuDialog(): void {

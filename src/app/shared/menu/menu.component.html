@@ -4,14 +4,63 @@
     <div class="menu__sides__desktop-image">
     </div>
     <mat-list class="menu__sides__navigation">
-      <mat-list-item (click)="goToEditorial()"><a class="mat-display-3 editorial uppercase">editorial</a></mat-list-item>
-      <mat-list-item><a class="mat-display-3 commercial uppercase">commercial</a></mat-list-item>
-      <mat-list-item><a class="mat-display-3 lifestyle uppercase">lifestyle & portraits</a></mat-list-item>
-      <mat-list-item><a class="mat-display-3 personal uppercase">personal</a></mat-list-item>
+      <mat-list-item>
+        <a
+          class="mat-display-3 editorial uppercase"
+          [routerLink]="['projects/editorial']"
+          [queryParams]="{categories:[2]}"
+          [queryParamsHandling]="'merge'"
+        >
+          editorial
+        </a>
+      </mat-list-item>
+      <mat-list-item>
+        <a
+          class="mat-display-3 commercial uppercase"
+          [routerLink]="['projects/commercial']"
+          [queryParams]="{categories:[3]}"
+          [queryParamsHandling]="'merge'"
+        >
+          commercial
+        </a>
+      </mat-list-item>
+      <mat-list-item>
+        <a
+          class="mat-display-3 lifestyle uppercase"
+          [routerLink]="['projects/lifestyle-portraits']"
+          [queryParams]="{categories:[4]}"
+          [queryParamsHandling]="'merge'"
+
+        >
+          lifestyle&portraits
+        </a>
+      </mat-list-item>
+      <mat-list-item>
+        <a
+          class="mat-display-3 personal uppercase"
+          [routerLink]="['projects/personal']"
+          [queryParams]="{categories:[5]}"
+          [queryParamsHandling]="'merge'"
+        >
+          personal
+        </a>
+      </mat-list-item>
       <mat-divider></mat-divider>
-      <mat-list-item><a class="mat-display-3 prints">prints</a></mat-list-item>
+      <mat-list-item>
+        <a
+          class="mat-display-3 prints"
+        >
+          prints
+        </a>
+      </mat-list-item>
       <mat-divider></mat-divider>
-      <mat-list-item><a class="mat-display-3 about">about me</a></mat-list-item>
+      <mat-list-item>
+        <a
+          class="mat-display-3 about"
+        >
+          about me
+        </a>
+      </mat-list-item>
     </mat-list>
   </div>
 </div>

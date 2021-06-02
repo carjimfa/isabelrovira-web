@@ -1,14 +1,15 @@
-import {AfterViewInit, Component} from '@angular/core';
-import {MatDialogRef} from '@angular/material/dialog';
+import {AfterViewInit, ChangeDetectionStrategy, Component} from '@angular/core';
 import {Router} from '@angular/router';
-import {PostRequestParams} from '../../core/wordpress-api/post-request-params';
 import {MenuService} from './menu.service';
+import {MenuItem} from '../../core/wordpress-api/menu-item';
+
 declare var anime: any;
 
 @Component({
   selector: 'app-menu',
   templateUrl: './menu.component.html',
-  styleUrls: ['./menu.component.scss']
+  styleUrls: ['./menu.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class MenuComponent implements AfterViewInit {
 
@@ -18,8 +19,6 @@ export class MenuComponent implements AfterViewInit {
   ) {}
 
   ngAfterViewInit(): void {
-    this.divideInSpan();
-
     const elements = [
       'editorial',
       'commercial',
@@ -29,10 +28,14 @@ export class MenuComponent implements AfterViewInit {
       'about'
     ];
 
+    this.divideInSpan();
+
     elements.forEach((elementClass) => {
+      const selector = `.${ elementClass } .letter`;
+
       anime.timeline({loop: false})
         .add({
-          targets: `.menu__sides__navigation mat-list-item .${ elementClass } .letter`,
+          targets: selector,
           translateY: [40, 0],
           translateZ: 0,
           opacity: [0, 1],
@@ -77,18 +80,5 @@ export class MenuComponent implements AfterViewInit {
 
   closeMenu(): void {
     this.menuService.close();
-  }
-
-  goToEditorial(): void {
-    const params = new PostRequestParams({
-      categories: ['2']
-    });
-
-    this.router.navigate(['projects'], {
-      queryParams: params,
-      queryParamsHandling: 'merge'
-    });
-
-    this.closeMenu();
   }
 }

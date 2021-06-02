@@ -19,7 +19,9 @@
     &__sides {
       &__navigation.mat-list {
         .mat-list-item {
-          color: mat-color($background, background);
+          a {
+            color: mat-color($background, background);
+          }
         }
 
         .mat-divider {

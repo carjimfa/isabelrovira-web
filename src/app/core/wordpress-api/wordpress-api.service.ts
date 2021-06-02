@@ -8,6 +8,7 @@ import {Media} from './media';
 import {ApiService} from '../api.service';
 import {PostOrderByAttribute, PostRequestParams} from './post-request-params';
 import {Order} from '../order.enum';
+import {MenuItem} from './menu-item';
 
 @Injectable({
   providedIn: 'root'
@@ -16,6 +17,7 @@ export class WordpressApiService {
   private readonly apiVersion = 'v2';
   private readonly postsUrlSlug = 'posts';
   private readonly mediaUrlSlug = 'media';
+  private readonly menuItemUrlSlug = 'menu-item';
 
   get postsEndpoint(): string {
     return this.buildEndpointUrl(this.postsUrlSlug);
@@ -23,6 +25,10 @@ export class WordpressApiService {
 
   get mediaEndpoint(): string {
     return this.buildEndpointUrl(this.mediaUrlSlug);
+  }
+
+  get menuItemEndpoint(): string {
+    return this.buildEndpointUrl(this.menuItemUrlSlug);
   }
 
   constructor(private readonly apiService: ApiService) { }
@@ -60,5 +66,12 @@ export class WordpressApiService {
   getMedia(id: number): Observable<Media> {
     return this.apiService.get<Media>(this.mediaEndpoint, id.toString())
       .pipe(map((res) => plainToClass(Media, res)));
+  }
+
+  getMenuItems(): Observable<Array<MenuItem>> {
+    return this.apiService.getList<MenuItem, PostRequestParams>(this.menuItemEndpoint)
+      .pipe(map((menuItems) => {
+        return plainToClass(MenuItem, menuItems);
+      }));
   }
 }
