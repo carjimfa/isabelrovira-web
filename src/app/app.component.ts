@@ -7,12 +7,8 @@ import {MenuService} from './shared/menu/menu.service';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
-export class AppComponent implements OnInit {
+export class AppComponent {
   title = 'isabelrovira-web';
 
-  constructor(private readonly menuService: MenuService) {}
-
-  ngOnInit(): void {
-    this.menuService.getMenuItems();
-  }
+  constructor() {}
 }

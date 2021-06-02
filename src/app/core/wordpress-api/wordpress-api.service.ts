@@ -27,10 +27,6 @@ export class WordpressApiService {
     return this.buildEndpointUrl(this.mediaUrlSlug);
   }
 
-  get menuItemEndpoint(): string {
-    return this.buildEndpointUrl(this.menuItemUrlSlug);
-  }
-
   constructor(private readonly apiService: ApiService) { }
 
   buildEndpointUrl(entityUrl: string): string {
@@ -66,12 +62,5 @@ export class WordpressApiService {
   getMedia(id: number): Observable<Media> {
     return this.apiService.get<Media>(this.mediaEndpoint, id.toString())
       .pipe(map((res) => plainToClass(Media, res)));
-  }
-
-  getMenuItems(): Observable<Array<MenuItem>> {
-    return this.apiService.getList<MenuItem, PostRequestParams>(this.menuItemEndpoint)
-      .pipe(map((menuItems) => {
-        return plainToClass(MenuItem, menuItems);
-      }));
   }
 }
