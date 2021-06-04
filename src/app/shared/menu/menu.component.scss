@@ -51,6 +51,12 @@ $breakpoint-tablet: 768px;
         margin-bottom: 0;
       }
 
+      a.active {
+        text-transform: capitalize;
+        text-decoration: underline;
+        font-style: italic;
+      }
+
       @media (min-width: $breakpoint-tablet) {
         width: 100%;
       }

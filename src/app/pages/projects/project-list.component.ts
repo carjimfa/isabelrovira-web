@@ -16,6 +16,7 @@ export class ProjectListComponent implements OnDestroy {
   queryParams?: PostRequestParams;
   posts$: Subject<Array<Post>> = new Subject<Array<Post>>();
   destroyed$ = new Subject();
+  pageTitle = '';
   constructor(
     private readonly router: Router,
     private readonly route: ActivatedRoute,
@@ -27,6 +28,11 @@ export class ProjectListComponent implements OnDestroy {
         takeUntil(this.destroyed$),
         map((posts) => plainToClass(Post, posts))
       ).subscribe((newPosts) => this.posts$.next(newPosts));
+    });
+
+    this.route.params.subscribe((params) => {
+      console.log(params);
+      this.pageTitle = params.pageTitle;
     });
   }
 

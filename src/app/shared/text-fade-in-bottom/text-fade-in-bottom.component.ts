@@ -7,8 +7,24 @@ declare var anime: any;
   styleUrls: ['./text-fade-in-bottom.component.scss']
 })
 export class TextFadeInBottomComponent implements AfterViewInit {
+  private _text = '';
+  private firstRender = false;
+
   @Input()
-  text = '';
+  get text(): string {
+    return this._text;
+  }
+  set text(value: string) {
+    console.log('set text');
+    console.log(value);
+    if (this._text !== value) {
+      this._text = value;
+      if (this.firstRender) {
+        this.clearSpans(value);
+        this.animateText();
+      }
+    }
+  }
 
   @Input()
   height = 110;
@@ -16,13 +32,19 @@ export class TextFadeInBottomComponent implements AfterViewInit {
   @Input()
   textClass = 'mat-display-4';
 
-  get splitTextInHtml(): string {
-    return this.text.split('').map((s) => {
-      return `<span class='letter'>${s}</span>`;
-    }).join('');
+  ngAfterViewInit(): void {
+    this.animateText();
+    this.firstRender = true;
   }
 
-  ngAfterViewInit(): void {
+  private clearSpans(text: string): void {
+    const textWrapper = document.querySelector('.text-wrapper');
+    if (!!textWrapper && !!textWrapper.textContent) {
+      textWrapper.textContent = text;
+    }
+  }
+
+  private animateText(): void {
     const textWrapper = document.querySelector('.text-wrapper');
     if (!!textWrapper && !!textWrapper.textContent) {
       textWrapper.innerHTML = textWrapper.textContent.replace(/\S/g, '<span class=\'letter\' style=\'display:inline-block;\'>$&</span>');
@@ -39,5 +61,4 @@ export class TextFadeInBottomComponent implements AfterViewInit {
         });
     }
   }
-
 }

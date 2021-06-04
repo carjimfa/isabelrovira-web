@@ -8,9 +8,9 @@
   https://codepen.io/jh3y/pen/WNrXqYz
   https://codepen.io/robinrendle/pen/wvaxEMz
   -->
-  <span>
+  <span *ngIf="pageTitle">
     <app-text-fade-in-bottom
-      [text]="'Projects'"
+      [text]="pageTitle"
     ></app-text-fade-in-bottom>
   </span>
   <ng-container *ngIf="(posts$ | async) as posts">

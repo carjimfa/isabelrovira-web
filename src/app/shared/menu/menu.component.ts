@@ -1,7 +1,9 @@
-import {AfterViewInit, ChangeDetectionStrategy, Component} from '@angular/core';
-import {Router} from '@angular/router';
+import {AfterViewInit, ChangeDetectionStrategy, Component, OnDestroy, OnInit} from '@angular/core';
+import {NavigationEnd, Router} from '@angular/router';
 import {MenuService} from './menu.service';
 import {MenuItem} from '../../core/wordpress-api/menu-item';
+import {filter, takeUntil} from 'rxjs/operators';
+import {Subject} from 'rxjs';
 
 declare var anime: any;
 
@@ -11,12 +13,24 @@ declare var anime: any;
   styleUrls: ['./menu.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class MenuComponent implements AfterViewInit {
+export class MenuComponent implements OnInit, AfterViewInit, OnDestroy {
+  readonly destroyed$ = new Subject();
 
   constructor(
     private readonly router: Router,
     private readonly menuService: MenuService
   ) {}
+
+  ngOnInit(): void {
+    this.router.events.pipe(
+      takeUntil(this.destroyed$),
+      filter((e) => e instanceof NavigationEnd)
+    ).subscribe((e) => {
+      if (this.menuService.isOpened) {
+        this.closeMenu();
+      }
+    });
+  }
 
   ngAfterViewInit(): void {
     const elements = [
@@ -67,6 +81,11 @@ export class MenuComponent implements AfterViewInit {
         easing: 'easeOutExpo',
         duration: 1200
       });
+  }
+
+  ngOnDestroy(): void {
+    this.destroyed$.next();
+    this.destroyed$.unsubscribe();
   }
 
   divideInSpan(): void {

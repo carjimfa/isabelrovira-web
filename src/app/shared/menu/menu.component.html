@@ -4,43 +4,46 @@
     <div class="menu__sides__desktop-image">
     </div>
     <mat-list class="menu__sides__navigation">
-      <mat-list-item>
+      <mat-list-item class="uppercase">
         <a
-          class="mat-display-3 editorial uppercase"
+          class="mat-display-3 editorial"
           [routerLink]="['projects/editorial']"
           [queryParams]="{categories:[2]}"
           [queryParamsHandling]="'merge'"
+          [routerLinkActive]="'active'"
         >
           editorial
         </a>
       </mat-list-item>
-      <mat-list-item>
+      <mat-list-item class="uppercase">
         <a
-          class="mat-display-3 commercial uppercase"
+          class="mat-display-3 commercial"
           [routerLink]="['projects/commercial']"
           [queryParams]="{categories:[3]}"
           [queryParamsHandling]="'merge'"
+          [routerLinkActive]="'active'"
         >
           commercial
         </a>
       </mat-list-item>
-      <mat-list-item>
+      <mat-list-item class="uppercase">
         <a
-          class="mat-display-3 lifestyle uppercase"
+          class="mat-display-3 lifestyle"
           [routerLink]="['projects/lifestyle-portraits']"
           [queryParams]="{categories:[4]}"
           [queryParamsHandling]="'merge'"
-
+          [routerLinkActive]="'active'"
         >
           lifestyle&portraits
         </a>
       </mat-list-item>
-      <mat-list-item>
+      <mat-list-item class="uppercase">
         <a
-          class="mat-display-3 personal uppercase"
+          class="mat-display-3 personal"
           [routerLink]="['projects/personal']"
           [queryParams]="{categories:[5]}"
           [queryParamsHandling]="'merge'"
+          [routerLinkActive]="'active'"
         >
           personal
         </a>
