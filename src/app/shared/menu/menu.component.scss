@@ -7,10 +7,6 @@ $breakpoint-tablet: 768px;
   height: 100%;
   border-radius: 0;
 
-  background-image: url('../../../assets/slack-imgs-1@2x.jpg');
-  background-size: 50% auto;
-  background-position: left top;
-  background-repeat: no-repeat;
 
   &__header {
     display: grid;
@@ -34,12 +30,17 @@ $breakpoint-tablet: 768px;
     }
 
     &__desktop-image {
+      background-image: url('../../../assets/slack-imgs-1@2x.jpg');
+      background-size: cover;
+      background-position: left top;
+      background-repeat: no-repeat;
+
       width: 0%;
       height: 0%;
 
       @media (min-width: $breakpoint-tablet) {
         width: 100%;
-        height: calc(100vh - 96px);
+        height: 100vh;
       }
     }
 
