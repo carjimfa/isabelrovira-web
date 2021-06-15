@@ -1,0 +1,17 @@
+.layout-one-column {
+  &__wrapper {
+    margin-top: 96px;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr;
+    gap: 10px 10px;
+    grid-template-areas:
+      ".";
+    justify-content: center;
+    justify-items: center;
+
+    &__content {
+      max-width: 720px;
+    }
+  }
+}

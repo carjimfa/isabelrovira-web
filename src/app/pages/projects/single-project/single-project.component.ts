@@ -1,17 +1,17 @@
-import {Component, OnDestroy, OnInit} from '@angular/core';
-import {ActivatedRoute, Router} from '@angular/router';
-import {WordpressApiService} from '../../../core/wordpress-api/wordpress-api.service';
-import {Post} from '../../../core/wordpress-api/post';
-import {Subject} from 'rxjs';
-import {takeUntil} from 'rxjs/operators';
-import {Project} from '../../../core/project';
+import { AfterViewInit, Component, OnDestroy } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { WordpressApiService } from '../../../core/wordpress-api/wordpress-api.service';
+import { Post } from '../../../core/wordpress-api/post';
+import { Subject } from 'rxjs';
+import { takeUntil } from 'rxjs/operators';
+import { Project } from '../../../core/project';
 
 @Component({
   selector: 'app-single-project',
   templateUrl: './single-project.component.html',
   styleUrls: ['./single-project.component.scss']
 })
-export class SingleProjectComponent implements OnDestroy {
+export class SingleProjectComponent implements OnDestroy, AfterViewInit {
   project$: Subject<Project> = new Subject<Project>();
   destroyed$ = new Subject();
   windowWidth = 0;
@@ -58,6 +58,10 @@ export class SingleProjectComponent implements OnDestroy {
   getParsedHtml(source: string): Document {
     const parser = new DOMParser();
     return parser.parseFromString(source, 'text/html');
+  }
+
+  ngAfterViewInit(): void {
+    this.windowWidth = document.body.clientWidth;
   }
 
   ngOnDestroy(): void {

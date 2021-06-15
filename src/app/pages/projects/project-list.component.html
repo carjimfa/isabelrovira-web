@@ -1,14 +1,16 @@
-<div class="project-list">
-  <span *ngIf="pageTitle">
-    <app-text-fade-in-bottom
-      [text]="pageTitle"
-    ></app-text-fade-in-bottom>
-  </span>
-  <ng-container *ngIf="(posts$ | async) as posts">
-    <div class="project-list__item" *ngFor="let post of posts">
-        <a [routerLink]="'/projects/'+post.id">{{post.title.rendered}}</a>
+<app-layout-one-column>
+  <div class="project-list" app-layout-one-column-content>
+    <span *ngIf="pageTitle">
+      <app-text-fade-in-bottom
+        [text]="pageTitle"
+      ></app-text-fade-in-bottom>
+    </span>
+    <ng-container *ngIf="(posts$ | async) as posts">
+      <a class="project-list__item" [routerLink]="'/projects/'+pageTitle+'/'+post.id" *ngFor="let post of posts">
+        <span class="mat-display-1">{{post.title.rendered}}</span>
         <div class="project-list__item__image">
         </div>
-    </div>
-  </ng-container>
-</div>
+      </a>
+    </ng-container>
+  </div>
+</app-layout-one-column>

@@ -8,6 +8,7 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { MatListModule } from '@angular/material/list';
 import { ProjectCoverComponent } from './project-cover/project-cover.component';
 import { TextFadeInBottomComponent } from './text-fade-in-bottom/text-fade-in-bottom.component';
+import { LayoutOneColumnComponent } from './layout-one-column/layout-one-column.component';
 
 
 @NgModule({
@@ -15,13 +16,15 @@ import { TextFadeInBottomComponent } from './text-fade-in-bottom/text-fade-in-bo
     ToolbarComponent,
     MenuComponent,
     ProjectCoverComponent,
-    TextFadeInBottomComponent
+    TextFadeInBottomComponent,
+    LayoutOneColumnComponent
   ],
     exports: [
         ToolbarComponent,
         MenuComponent,
         ProjectCoverComponent,
-        TextFadeInBottomComponent
+        TextFadeInBottomComponent,
+        LayoutOneColumnComponent
     ],
     imports: [
       CommonModule,
