@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  wordpressApiUrl: 'http://localhost:8888/wp-json'
+  wordpressApiUrl: 'https://isabelrovira.ginernet.net/wp-json'
 };
 
 /*

@@ -1,7 +1,6 @@
 import {AfterViewInit, ChangeDetectionStrategy, Component, OnDestroy, OnInit} from '@angular/core';
 import {NavigationEnd, Router} from '@angular/router';
 import {MenuService} from './menu.service';
-import {MenuItem} from '../../core/wordpress-api/menu-item';
 import {filter, takeUntil} from 'rxjs/operators';
 import {Subject} from 'rxjs';
 
@@ -18,7 +17,7 @@ export class MenuComponent implements OnInit, AfterViewInit, OnDestroy {
 
   constructor(
     private readonly router: Router,
-    private readonly menuService: MenuService
+    readonly menuService: MenuService
   ) {}
 
   ngOnInit(): void {

@@ -1,3 +1,4 @@
 export const environment = {
-  production: true
+  production: true,
+  wordpressApiUrl: 'https://isabelrovira.ginernet.net/wp-json'
 };

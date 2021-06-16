@@ -10,6 +10,54 @@ export class MenuService {
 
   private _dialogRef?: MatDialogRef<MenuComponent>;
 
+  menuItemGroups: Array<IMenuItemGroup> = [
+    {
+      order: 0,
+      menuItems: [
+        {
+          label: 'editorial',
+          cssClass: 'editorial',
+          routerLink: ['projects/editorial'],
+          queryParams: {categories: [2]}
+        },
+        {
+          label: 'commercial',
+          cssClass: 'commercial',
+          routerLink: ['projects/lifestyle-portraits'],
+          queryParams: {categories: [3]}
+        },
+        {
+          label: 'lifestyle&portraits',
+          cssClass: 'lifestyle',
+          routerLink: ['projects/lifestyle-portraits'],
+          queryParams: {categories: [4]}
+        }
+      ]
+    },
+    {
+      order: 1,
+      menuItems: [
+        {
+          label: 'personal',
+          cssClass: 'personal'
+        }
+      ]
+    },
+    {
+      order: 2,
+      menuItems: [
+        {
+          cssClass: 'prints',
+          label: 'prints'
+        },
+        {
+          label: 'about',
+          cssClass: 'about'
+        }
+      ]
+    }
+  ];
+
   get isOpened(): boolean {
     return this.isOpened$.value;
   }
@@ -54,4 +102,16 @@ export class MenuService {
       },
     });
   }
+}
+
+export interface IMenuItemGroup {
+  menuItems: Array<IMenuItem>;
+  order: number;
+}
+
+export interface IMenuItem {
+  routerLink?: Array<string | number>;
+  queryParams?: {categories: Array<number>};
+  label: string;
+  cssClass: string;
 }

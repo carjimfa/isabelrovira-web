@@ -8,7 +8,6 @@ import {Media} from './media';
 import {ApiService} from '../api.service';
 import {PostOrderByAttribute, PostRequestParams} from './post-request-params';
 import {Order} from '../order.enum';
-import {MenuItem} from './menu-item';
 
 @Injectable({
   providedIn: 'root'
@@ -17,7 +16,6 @@ export class WordpressApiService {
   private readonly apiVersion = 'v2';
   private readonly postsUrlSlug = 'posts';
   private readonly mediaUrlSlug = 'media';
-  private readonly menuItemUrlSlug = 'menu-item';
 
   get postsEndpoint(): string {
     return this.buildEndpointUrl(this.postsUrlSlug);
