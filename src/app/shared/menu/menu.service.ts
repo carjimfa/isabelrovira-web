@@ -18,19 +18,22 @@ export class MenuService {
           label: 'editorial',
           cssClass: 'editorial',
           routerLink: ['projects/editorial'],
-          queryParams: {categories: [2]}
+          queryParams: {categories: [2]},
+          uppercase: true
         },
         {
           label: 'commercial',
           cssClass: 'commercial',
           routerLink: ['projects/lifestyle-portraits'],
-          queryParams: {categories: [3]}
+          queryParams: {categories: [3]},
+          uppercase: true
         },
         {
           label: 'lifestyle&portraits',
           cssClass: 'lifestyle',
           routerLink: ['projects/lifestyle-portraits'],
-          queryParams: {categories: [4]}
+          queryParams: {categories: [4]},
+          uppercase: true
         }
       ]
     },
@@ -39,7 +42,8 @@ export class MenuService {
       menuItems: [
         {
           label: 'personal',
-          cssClass: 'personal'
+          cssClass: 'personal',
+          routerLink: ['personal'],
         }
       ]
     },
@@ -48,11 +52,13 @@ export class MenuService {
       menuItems: [
         {
           cssClass: 'prints',
-          label: 'prints'
+          label: 'prints',
+          routerLink: ['prints']
         },
         {
           label: 'about',
-          cssClass: 'about'
+          cssClass: 'about',
+          routerLink: ['about']
         }
       ]
     }
@@ -114,4 +120,5 @@ export interface IMenuItem {
   queryParams?: {categories: Array<number>};
   label: string;
   cssClass: string;
+  uppercase?: boolean;
 }

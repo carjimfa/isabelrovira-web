@@ -1,5 +1,7 @@
 export class PostAcf {
-  cliente?: string;
-  maquillaje?: string;
-  publicacion?: string;
+  // tslint:disable:variable-name
+  client?: string;
+  makeup_artist?: string;
+  publication?: string;
+  publication_logo_url?: string;
 }

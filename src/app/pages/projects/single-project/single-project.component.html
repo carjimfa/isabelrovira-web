@@ -3,12 +3,16 @@
     <div class="single-post__header">
       <h1 class="mat-display-4">{{project.title}}</h1>
     </div>
+    <div class="single-post__publication-logo">
+      <p class="mat-headline">Published on</p>
+      <img src="{{project.properties?.publication_logo_url}}"/>
+    </div>
     <div class="single-post__properties" *ngIf="project.properties">
-    <span class="mat-headline">
-      <p *ngIf="project.properties?.cliente"><strong>Client:</strong> {{project.properties?.cliente}}</p>
-      <p *ngIf="project.properties?.maquillaje"><strong>Make-up artist:</strong> {{project.properties?.maquillaje}}</p>
-      <p *ngIf="project.properties?.publicacion"><strong>Publicación:</strong> {{project.properties?.publicacion}}</p>
-    </span>
+      <span class="mat-headline">
+        <p *ngIf="project.properties?.client"><strong>Client:</strong> {{project.properties?.client}}</p>
+        <p *ngIf="project.properties?.makeup_artist"><strong>Make-up artist:</strong> {{project.properties?.makeup_artist}}</p>
+        <p *ngIf="project.properties?.publication"><strong>Publicación:</strong> {{project.properties?.publication}}</p>
+      </span>
     </div>
     <div class="single-post__content"
          [class.single-post__content-1-column]="windowWidth <= 720"
