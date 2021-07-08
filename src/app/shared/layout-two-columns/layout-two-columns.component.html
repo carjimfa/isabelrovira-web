@@ -1,0 +1,8 @@
+<div class="layout-two-column__wrapper" [class.with-sidebar]="hasSidebar">
+  <div class="layout-two-column__wrapper__left-column">
+    <ng-content select="[app-layout-two-column-left-column]"></ng-content>
+  </div>
+  <div class="layout-two-column__wrapper__right-column">
+    <ng-content select="[app-layout-two-column-right-column]"></ng-content>
+  </div>
+</div>

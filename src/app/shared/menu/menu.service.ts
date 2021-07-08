@@ -41,21 +41,6 @@ export class MenuService {
       order: 1,
       menuItems: [
         {
-          label: 'personal',
-          cssClass: 'personal',
-          routerLink: ['personal'],
-        }
-      ]
-    },
-    {
-      order: 2,
-      menuItems: [
-        {
-          cssClass: 'prints',
-          label: 'prints',
-          routerLink: ['prints']
-        },
-        {
           label: 'about',
           cssClass: 'about',
           routerLink: ['about']

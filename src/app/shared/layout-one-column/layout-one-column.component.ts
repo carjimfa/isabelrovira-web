@@ -7,5 +7,5 @@ import {Component, Input, OnInit} from '@angular/core';
 })
 export class LayoutOneColumnComponent {
   @Input()
-  hasSidebar = true
+  hasSidebar = true;
 }

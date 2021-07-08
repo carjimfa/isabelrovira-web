@@ -1,0 +1,46 @@
+.about {
+  &__right-column {
+    &__content {
+      max-width: 47.46%;
+      margin: 0 auto;
+      min-width: 300px;
+
+      &__title{
+        margin: 0 auto;
+        line-break: auto;
+        font-size: 70px;
+        line-height: 56px;
+        text-align: center;
+        font-weight: 500;
+        max-width: 310px;
+        font-family: orpheuspro;
+        hyphens: manual;
+        text-align: center;
+      }
+
+      &__about-description {
+        margin: 8px 16px;
+      }
+
+      &__social-links {
+        display: grid;
+        align-items: center;
+        justify-content: center;
+        justify-items: center;
+        grid-template-columns: 48% 4% 48%;
+
+        a {
+          text-decoration: none;
+        }
+
+        a:first-of-type {
+          justify-self: end;
+        }
+
+        a:last-of-type {
+          justify-self: start;
+        }
+      }
+    }
+  }
+}

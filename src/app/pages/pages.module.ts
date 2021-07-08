@@ -6,6 +6,7 @@ import { SingleProjectComponent } from './projects/single-project/single-project
 import { ProjectListComponent } from './projects/project-list.component';
 import {RouterModule} from '@angular/router';
 import {SharedModule} from '../shared/shared.module';
+import { AboutComponent } from './about/about.component';
 
 
 
@@ -13,7 +14,8 @@ import {SharedModule} from '../shared/shared.module';
   declarations: [
     HomeComponent,
     SingleProjectComponent,
-    ProjectListComponent
+    ProjectListComponent,
+    AboutComponent
   ],
   imports: [
     CommonModule,

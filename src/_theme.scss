@@ -20,6 +20,7 @@ $fontConfig: (
   display-1: mat-typography-level(34px, 40px, 400, 'minerva-modern', 0.0074em),
   headline: mat-typography-level(24px, 32px, 400, 'minerva-modern', 0.0000em),
   title: mat-typography-level(20px, 32px, 500, 'minerva-modern', 0.0075em),
+  subheading-3: mat-typography-level(18px, 22px, 400, 'minerva-modern', 0.0094em),
   subheading-2: mat-typography-level(16px, 28px, 400, 'minerva-modern', 0.0094em),
   subheading-1: mat-typography-level(15px, 24px, 500, 'minerva-modern', 0.0067em),
   body-2: mat-typography-level(14px, 24px, 500, 'minerva-modern', 0.0179em),
@@ -221,6 +222,10 @@ $altTheme: mat-dark-theme($theme-primary, $theme-accent, $theme-warn);
 @include angular-material-theme($theme);
 
 .theme-alternate {
+  @include angular-material-theme($altTheme);
+}
+
+.theme-alternate-2 {
   @include angular-material-theme($altTheme);
 }
 

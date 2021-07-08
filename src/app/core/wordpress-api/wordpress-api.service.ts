@@ -16,6 +16,7 @@ export class WordpressApiService {
   private readonly apiVersion = 'v2';
   private readonly postsUrlSlug = 'posts';
   private readonly mediaUrlSlug = 'media';
+  private readonly pagesUrlSlug = 'pages';
 
   get postsEndpoint(): string {
     return this.buildEndpointUrl(this.postsUrlSlug);
@@ -23,6 +24,10 @@ export class WordpressApiService {
 
   get mediaEndpoint(): string {
     return this.buildEndpointUrl(this.mediaUrlSlug);
+  }
+
+  get pagesEndpoint(): string {
+    return this.buildEndpointUrl(this.pagesUrlSlug);
   }
 
   constructor(private readonly apiService: ApiService) { }
@@ -60,5 +65,10 @@ export class WordpressApiService {
   getMedia(id: number): Observable<Media> {
     return this.apiService.get<Media>(this.mediaEndpoint, id.toString())
       .pipe(map((res) => plainToClass(Media, res)));
+  }
+
+  getPage(id: number): Observable<Post> {
+    return this.apiService.get<Post>(this.pagesEndpoint, id.toString())
+      .pipe(map((res) => plainToClass(Post, res)));
   }
 }

@@ -4,7 +4,8 @@
 
 export const environment = {
   production: false,
-  wordpressApiUrl: 'https://isabelrovira.ginernet.net/wp-json'
+  wordpressApiUrl: 'https://isabelrovira.ginernet.net/wp-json',
+  aboutPageId: 2
 };
 
 /*

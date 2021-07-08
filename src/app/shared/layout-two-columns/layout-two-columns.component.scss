@@ -1,0 +1,11 @@
+.layout-two-column {
+  &__wrapper {
+    padding-top: 96px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px 10px;
+    justify-content: center;
+    justify-items: center;
+    align-items: center;
+  }
+}
