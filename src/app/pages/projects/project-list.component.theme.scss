@@ -1,4 +1,4 @@
-@import '~@angular/material/theming';
+@use '~@angular/material' as mat;
 
 @mixin project-list-component($theme) {
   $background: map-get($theme, background);
@@ -6,8 +6,8 @@
 
   .project-list {
     &__item {
-      border-top-color: mat-color($foreground, text);
-      color: mat-color($foreground, text);
+      border-top-color: mat.get-color-from-palette($foreground, text);
+      color: mat.get-color-from-palette($foreground, text);
     }
   }
 }
