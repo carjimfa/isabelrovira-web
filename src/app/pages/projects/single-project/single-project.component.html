@@ -3,7 +3,7 @@
     <div class="single-post__header">
       <h1 class="mat-display-4">{{project.title}}</h1>
     </div>
-    <div class="single-post__publication-logo">
+    <div class="single-post__publication-logo" *ngIf="project.properties?.publication && project.properties?.publication_logo_url">
       <p class="mat-headline">Published on</p>
       <img src="{{project.properties?.publication_logo_url}}"/>
     </div>
@@ -15,8 +15,8 @@
       </span>
     </div>
     <div class="single-post__content"
-         [class.single-post__content-1-column]="windowWidth <= 720"
-         [class.single-post__content-2-column]="windowWidth > 720"
+         [class.single-post__content-1-column]="windowWidth <= 960"
+         [class.single-post__content-2-column]="windowWidth > 960"
          (window:resize)="onWindowResize($event)">
     <span *ngFor="let image of project.images">
        <img [src]="image"/>
