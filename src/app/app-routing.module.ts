@@ -9,10 +9,7 @@ import {Theme} from './core/theme.service';
 const routes: Routes = [
   {
     path: '',
-    component: HomeComponent,
-    data: {
-      theme: Theme.Light
-    }
+    component: HomeComponent
   },
   {
     path: 'projects/:pageTitle',
@@ -20,16 +17,10 @@ const routes: Routes = [
       {
         path: '',
         component: ProjectListComponent,
-        data: {
-          theme: Theme.Light
-        }
       },
       {
         path: ':id',
         component: SingleProjectComponent,
-        data: {
-          theme: Theme.Light
-        }
       }
     ]
   },
