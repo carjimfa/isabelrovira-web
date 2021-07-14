@@ -1,9 +1,10 @@
-import { Component, OnInit } from '@angular/core';
-import { WordpressApiService } from '../../core/wordpress-api/wordpress-api.service';
-import { environment } from '../../../environments/environment';
+import {Component, OnInit} from '@angular/core';
+import {WordpressApiService} from '../../core/wordpress-api/wordpress-api.service';
+import {environment} from '../../../environments/environment';
 import {Subject} from 'rxjs';
 import {Post} from '../../core/wordpress-api/post';
 import {Media} from '../../core/wordpress-api/media';
+import {Theme, ThemeService} from '../../core/theme.service';
 
 @Component({
   selector: 'app-about',
@@ -14,7 +15,7 @@ export class AboutComponent implements OnInit {
   aboutPage$: Subject<Post> = new Subject<Post>();
   featuredImage$: Subject<Media> = new Subject<Media>();
 
-  constructor(private readonly wordpressApiService: WordpressApiService) { }
+  constructor(private readonly wordpressApiService: WordpressApiService) {}
 
   ngOnInit(): void {
     this.wordpressApiService.getPage(environment.aboutPageId).subscribe((res) => {

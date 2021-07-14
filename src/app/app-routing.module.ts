@@ -4,28 +4,41 @@ import { HomeComponent } from './pages/home/home.component';
 import { SingleProjectComponent } from './pages/projects/single-project/single-project.component';
 import { ProjectListComponent } from './pages/projects/project-list.component';
 import { AboutComponent } from './pages/about/about.component';
+import {Theme} from './core/theme.service';
 
 const routes: Routes = [
   {
     path: '',
-    component: HomeComponent
+    component: HomeComponent,
+    data: {
+      theme: Theme.Light
+    }
   },
   {
     path: 'projects/:pageTitle',
     children: [
       {
         path: '',
-        component: ProjectListComponent
+        component: ProjectListComponent,
+        data: {
+          theme: Theme.Light
+        }
       },
       {
         path: ':id',
-        component: SingleProjectComponent
+        component: SingleProjectComponent,
+        data: {
+          theme: Theme.Light
+        }
       }
     ]
   },
   {
     path: 'about',
-    component: AboutComponent
+    component: AboutComponent,
+    data: {
+      theme: Theme.Dark
+    }
   }
 ];
 

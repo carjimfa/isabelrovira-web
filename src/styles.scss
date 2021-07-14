@@ -1,13 +1,10 @@
 @use '~@angular/material' as mat;
 @import './_theme.scss';
 
-$background: map-get($theme, background);
-
 html, body { height: 100%; }
 body {
   margin: 0;
   font-family: Roboto, "Helvetica Neue", sans-serif;
-  background-color: mat.get-color-from-palette($background, background)
 }
 
 .menu-container .mat-dialog-container {
