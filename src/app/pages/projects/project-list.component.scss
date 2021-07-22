@@ -21,11 +21,6 @@
   }
 
   &__item:hover {
-    text-transform: none;
     text-decoration: underline;
-    span {
-      font-family: 'Baskerville';
-      font-style: italic;
-    }
   }
 }

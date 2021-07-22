@@ -2,10 +2,12 @@
 @import './app/shared/menu/menu.component.theme';
 @import './app/pages/projects/project-list.component.theme';
 @import './app/app.component.theme';
+@import './app/pages/about/about.component.theme';
 
 @mixin components-theme($theme) {
   @include app-component($theme);
   @include toolbar-component($theme);
   @include menu-component($theme);
   @include project-list-component($theme);
+  @include about-page($theme);
 }

@@ -127,6 +127,7 @@ $theme: map-extend(
         disabled-button-toggle:   $light-bg-darker-10,
         unselected-chip:          $light-bg-darker-10,
         disabled-list-option:     $light-bg-darker-10,
+        menu: $dark-primary-text
       ),
       foreground: (
         base:              black,
@@ -168,6 +169,7 @@ $darkTheme: map-extend(
       disabled-button-toggle: $dark-bg-lighter-10,
       unselected-chip: $dark-bg-lighter-20,
       disabled-list-option: $dark-bg-lighter-10,
+      menu: $dark-primary-text
     ),
     foreground: (
       base:              $light-text,
@@ -197,8 +199,16 @@ $darkTheme: map-extend(
   min-height: 100vh;
 }
 
+@include mat.all-component-themes($theme);
+@include components-theme($theme);
+
+.app-frame {
+  background-color: $light-background;
+}
+
 .dark-theme {
   @include mat.all-component-themes($darkTheme);
+  @include components-theme($darkTheme);
 
   .app-frame {
     background-color: $dark-background;
@@ -207,6 +217,7 @@ $darkTheme: map-extend(
 
 .light-theme {
   @include mat.all-component-themes($theme);
+  @include components-theme($theme);
 
   .app-frame {
     background-color: $light-background;
@@ -241,5 +252,3 @@ body {
   margin: 0;
   font-family: Roboto, "Helvetica Neue", sans-serif;
 }
-
-@include components-theme($theme)
