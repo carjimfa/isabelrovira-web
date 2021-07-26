@@ -24,7 +24,7 @@ export class MenuService {
         {
           label: 'commercial',
           cssClass: 'commercial',
-          routerLink: ['projects/lifestyle-portraits'],
+          routerLink: ['projects/commercial'],
           queryParams: {categories: [3]},
           uppercase: true
         },
