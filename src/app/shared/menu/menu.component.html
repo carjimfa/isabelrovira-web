@@ -6,17 +6,19 @@
     <mat-list class="menu__sides__navigation">
       <ng-container *ngFor="let itemGroup of menuService.menuItemGroups">
         <mat-list-item class="uppercase" *ngFor="let item of itemGroup.menuItems">
-          <a
-            class="mat-display-3 {{item.cssClass}}"
-            [class.uppercase]="item.uppercase"
-            [class.lowercase]="!item.uppercase"
-            [routerLink]="item.routerLink"
-            [queryParams]="item.queryParams"
-            [routerLinkActive]="'active'"
-            [queryParamsHandling]="'merge'"
-          >
-            {{item.label}}
-          </a>
+          <h1 style="text-align: center">
+            <a
+              class="mat-display-3 {{item.cssClass}}"
+              [class.uppercase]="item.uppercase"
+              [class.lowercase]="!item.uppercase"
+              [routerLink]="item.routerLink"
+              [queryParams]="item.queryParams"
+              [routerLinkActive]="'active'"
+              [queryParamsHandling]="'merge'"
+            >
+              {{item.label}}
+            </a>
+          </h1>
         </mat-list-item>
         <mat-divider></mat-divider>
       </ng-container>
