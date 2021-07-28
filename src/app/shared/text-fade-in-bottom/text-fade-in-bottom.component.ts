@@ -32,6 +32,14 @@ export class TextFadeInBottomComponent implements AfterViewInit {
   @Input()
   textClass = 'mat-display-4';
 
+  get style(): string {
+    if (this.height > -1) {
+      return 'height: ' + this.height + 'px;';
+    }
+
+    return 'height: auto;';
+  }
+
   ngAfterViewInit(): void {
     this.animateText();
     this.firstRender = true;
@@ -47,7 +55,10 @@ export class TextFadeInBottomComponent implements AfterViewInit {
   private animateText(): void {
     const textWrapper = document.querySelector('.text-wrapper');
     if (!!textWrapper && !!textWrapper.textContent) {
-      textWrapper.innerHTML = textWrapper.textContent.replace(/\S/g, '<span class=\'letter\' style=\'display:inline-block;\'>$&</span>');
+      textWrapper.innerHTML = textWrapper.textContent.replace(
+        /\S/g,
+        '&shy;<span class=\'letter\' style=\'display:inline-block;\'>$&</span>'
+      );
 
       anime.timeline({loop: false})
         .add({

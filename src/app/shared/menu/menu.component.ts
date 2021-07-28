@@ -91,7 +91,7 @@ export class MenuComponent implements OnInit, AfterViewInit, OnDestroy {
     const textWrappers = document.querySelectorAll('.menu__sides__navigation mat-list-item h1 a');
     textWrappers.forEach((e) => {
       if (!!e && !!e.textContent) {
-        e.innerHTML = e.textContent.replace(/\S/g, '<span class=\'letter\' style=\'display:inline-block;\'>$&</span>');
+        e.innerHTML = e.textContent.replace(/\S/g, '&shy;<span class=\'letter\' style=\'display:inline-block;\'>$&</span>');
       }
     });
   }

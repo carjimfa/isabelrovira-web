@@ -33,7 +33,7 @@ export class ProjectListComponent implements OnDestroy {
     });
 
     this.route.params.subscribe((params) => {
-      this.pageTitle = params.pageTitle;
+      this.pageTitle = params.pageTitle.replace('-', ' & ');
     });
   }
 

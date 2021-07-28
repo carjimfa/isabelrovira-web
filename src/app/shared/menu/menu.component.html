@@ -6,7 +6,7 @@
     <mat-list class="menu__sides__navigation">
       <ng-container *ngFor="let itemGroup of menuService.menuItemGroups">
         <mat-list-item class="uppercase" *ngFor="let item of itemGroup.menuItems">
-          <h1 style="text-align: center">
+          <h1 style="text-align: center; width: 100%;">
             <a
               class="mat-display-3 {{item.cssClass}}"
               [class.uppercase]="item.uppercase"

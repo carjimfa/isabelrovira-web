@@ -1,8 +1,9 @@
-<app-layout-one-column>
+<app-layout-one-column |>
   <div class="project-list" app-layout-one-column-content>
     <span *ngIf="pageTitle">
       <app-text-fade-in-bottom
         [text]="pageTitle"
+        [height]="-1"
       ></app-text-fade-in-bottom>
     </span>
     <ng-container *ngIf="(posts$ | async) as posts">
