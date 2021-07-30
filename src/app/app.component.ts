@@ -1,13 +1,13 @@
-import {AfterViewInit, Component, HostBinding, OnInit} from '@angular/core';
-import {WordpressApiService} from './core/wordpress-api/wordpress-api.service';
-import {MenuService} from './shared/menu/menu.service';
-import {Theme, ThemeService} from './core/theme.service';
-import {ActivatedRoute, ActivationStart, NavigationStart, Router} from '@angular/router';
+import { Component, HostBinding } from '@angular/core';
+import { Theme, ThemeService } from './core/theme.service';
+import { ActivatedRoute, ActivationStart, Router } from '@angular/router';
+import { FADE_IN_TOOLBAR } from './shared/animations';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss']
+  styleUrls: ['./app.component.scss'],
+  animations: [ FADE_IN_TOOLBAR ]
 })
 export class AppComponent {
   title = 'isabelrovira-web';

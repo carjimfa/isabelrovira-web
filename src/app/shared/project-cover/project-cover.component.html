@@ -1,7 +1,7 @@
 <div class="main-article" *ngIf="post"
      [style.background-image]="'url('+ (featuredImageSrc$ | async) +')'"
      [style.height]="styleHeight"
-     [@fadeIn]="isShownImage ? 'shown' : 'hidden'"
+     @fadeInContent
 >
   <div class="main-article__headline" [@fadeIn]="headlineState">
     <a [routerLink]="'/projects/single/'+post.id">

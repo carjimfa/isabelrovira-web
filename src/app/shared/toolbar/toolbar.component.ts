@@ -1,7 +1,5 @@
 import { Component } from '@angular/core';
-import { MenuComponent } from '../menu/menu.component';
-import { NgDialogAnimationService } from 'ng-dialog-animation';
-import {MenuService} from '../menu/menu.service';
+import { MenuService } from '../menu/menu.service';
 
 @Component({
   selector: 'app-toolbar',
