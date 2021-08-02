@@ -202,26 +202,19 @@ $darkTheme: map-extend(
 @include mat.all-component-themes($theme);
 @include components-theme($theme);
 
-.app-frame {
-  background-color: $light-background;
-}
 
 .dark-theme {
   @include mat.all-component-themes($darkTheme);
   @include components-theme($darkTheme);
-
-  .app-frame {
-    background-color: $dark-background;
-  }
+  background-color: $dark-background;
+  transition: background-color .2s ease-out;
 }
 
 .light-theme {
   @include mat.all-component-themes($theme);
   @include components-theme($theme);
-
-  .app-frame {
-    background-color: $light-background;
-  }
+  background-color: $light-background;
+  transition: background-color .2s ease-out;
 }
 
 // Specific component overrides, pieces that are not in line with the general theming

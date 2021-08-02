@@ -1,4 +1,4 @@
-<div class="app-frame">
+<div class="app-frame" [@fadeTransition]="getRouterOutletState(o)">
   <app-toolbar @fadeInToolbar></app-toolbar>
-  <router-outlet></router-outlet>
+  <router-outlet #o="outlet"></router-outlet>
 </div>

@@ -1,1 +1,18 @@
 @import 'https://use.typekit.net/lss0mkz.css';
+
+:host {
+  display: flex;
+  overflow: hidden;
+  height: 100vh;
+
+  main {
+    position: relative;
+  }
+
+  ::ng-deep router-outlet ~ * {
+    position: absolute;
+    width: 100%;
+    height: calc(100% - 96px);
+    margin-top: 96px;
+  }
+}

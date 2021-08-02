@@ -1,13 +1,13 @@
 import { Component, HostBinding } from '@angular/core';
 import { Theme, ThemeService } from './core/theme.service';
-import { ActivatedRoute, ActivationStart, Router } from '@angular/router';
-import { FADE_IN_TOOLBAR } from './shared/animations';
+import {ActivatedRoute, ActivationStart, OutletContext, Router, RouterOutlet} from '@angular/router';
+import {FADE_IN_TOOLBAR, FADE_TRANSITION} from './shared/animations';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss'],
-  animations: [ FADE_IN_TOOLBAR ]
+  animations: [ FADE_IN_TOOLBAR, FADE_TRANSITION ]
 })
 export class AppComponent {
   title = 'isabelrovira-web';
@@ -34,5 +34,9 @@ export class AppComponent {
         }
       }
     });
+  }
+
+  public getRouterOutletState(outlet: RouterOutlet): ActivatedRoute | string {
+    return outlet.isActivated ? outlet.activatedRoute : '';
   }
 }
