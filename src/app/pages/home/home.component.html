@@ -2,7 +2,7 @@
   <div app-layout-one-column-content *ngIf="(post$ | async) as post" class="home">
     <app-project-cover
       [post]="post"
-      [styleHeight]="'calc(100vh - 96px)'"
+      [styleHeight]="'calc(100vh - 96px - 96px)'"
     ></app-project-cover>
   </div>
 </app-layout-one-column>

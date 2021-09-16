@@ -12,7 +12,8 @@
   ::ng-deep router-outlet ~ * {
     position: absolute;
     width: 100%;
-    height: calc(100% - 96px);
+    height: calc(100% - 96px - 96px);
     margin-top: 96px;
+    margin-bottom: 96px;
   }
 }
