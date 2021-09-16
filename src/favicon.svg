@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="30px" height="30px" viewBox="0 0 30 30" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>isa favicon</title>
+    <g id="All" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="isa-favicon">
+            <rect id="Rectangle" x="0" y="0" width="30" height="30"></rect>
+            <g id="Group-8" transform="translate(14.268000, 3.220000)" fill="#181818">
+                <path d="M1.676,3.162 C2.56,3.162 3.24,2.448 3.24,1.564 C3.24,0.714 2.56,0 1.676,0 C0.826,0 0.112,0.714 0.112,1.564 C0.112,2.448 0.826,3.162 1.676,3.162 Z M2.662,22.78 L2.662,7.718 L0.384,7.718 L0.384,22.78 L2.662,22.78 Z" id="i-copy" fill-rule="nonzero"></path>
+                <path d="M2.346,22.78 L2.312,14.654 C2.312,12.104 3.026,9.112 6.154,9.112 C6.63,9.112 7.412,9.316 7.786,9.622 L8.024,7.14 C4.828,7.14 3.366,8.602 2.278,10.71 L1.632,7.718 L0.034,7.718 L0,22.746 L2.346,22.78 Z" id="r-copy"></path>
+            </g>
+        </g>
+    </g>
+</svg>
