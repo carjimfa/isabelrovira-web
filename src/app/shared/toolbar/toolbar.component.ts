@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
-import { MenuService } from '../menu/menu.service';
+import { NavigationService } from '../navigation/navigation.service';
+import {Location} from '@angular/common';
 
 @Component({
   selector: 'app-toolbar',
@@ -8,22 +9,11 @@ import { MenuService } from '../menu/menu.service';
 })
 export class ToolbarComponent {
 
-  constructor(readonly menuService: MenuService) {
-  }
+  constructor(
+    readonly menuService: NavigationService,
+    readonly location: Location) {}
 
-  onMenuButtonClicked(): void {
-    if (this.menuService.isOpened) {
-      this.closeMenu();
-    } else {
-      this.openMenu();
-    }
-  }
-
-  private openMenu(): void {
-    this.menuService.open();
-  }
-
-  private closeMenu(): void {
-    this.menuService.close();
+  goBack(): void {
+    this.location.back();
   }
 }

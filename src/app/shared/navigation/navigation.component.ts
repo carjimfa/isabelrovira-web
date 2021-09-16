@@ -1,35 +1,24 @@
 import {AfterViewInit, ChangeDetectionStrategy, Component, OnDestroy, OnInit} from '@angular/core';
 import {NavigationEnd, Router} from '@angular/router';
-import {MenuService} from './menu.service';
+import {NavigationService} from './navigation.service';
 import {filter, takeUntil} from 'rxjs/operators';
 import {Subject} from 'rxjs';
 
 declare var anime: any;
 
 @Component({
-  selector: 'app-menu',
-  templateUrl: './menu.component.html',
-  styleUrls: ['./menu.component.scss'],
+  selector: 'app-navigation',
+  templateUrl: './navigation.component.html',
+  styleUrls: ['./navigation.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class MenuComponent implements OnInit, AfterViewInit, OnDestroy {
+export class NavigationComponent implements AfterViewInit, OnDestroy {
   readonly destroyed$ = new Subject();
 
   constructor(
     private readonly router: Router,
-    readonly menuService: MenuService
+    readonly menuService: NavigationService
   ) {}
-
-  ngOnInit(): void {
-    this.router.events.pipe(
-      takeUntil(this.destroyed$),
-      filter((e) => e instanceof NavigationEnd)
-    ).subscribe((e) => {
-      if (this.menuService.isOpened) {
-        this.closeMenu();
-      }
-    });
-  }
 
   ngAfterViewInit(): void {
     const elements = [
@@ -94,9 +83,5 @@ export class MenuComponent implements OnInit, AfterViewInit, OnDestroy {
         e.innerHTML = e.textContent.replace(/\S/g, '&shy;<span class=\'letter\' style=\'display:inline-block;\'>$&</span>');
       }
     });
-  }
-
-  closeMenu(): void {
-    this.menuService.close();
   }
 }

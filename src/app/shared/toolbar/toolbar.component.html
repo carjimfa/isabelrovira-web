@@ -5,10 +5,15 @@
       <a [routerLink]="'/'">Isabel Rovira</a>
     </h1>
     <span class="toolbar__menu-button">
-      <a (click)="onMenuButtonClicked()">
-        <img *ngIf="!(menuService.isOpened$ | async)" src="/assets/menu.svg"/>
-        <img *ngIf="(menuService.isOpened$ | async)" src="/assets/arrow.svg"/>
+      <a [routerLink]="'/menu'" *ngIf="!menuService.isOpened else closeMenu">
+        <img src="/assets/menu.svg"/>
       </a>
     </span>
   </mat-toolbar-row>
 </mat-toolbar>
+
+<ng-template #closeMenu>
+  <a (click)="goBack()">
+    <img src="/assets/arrow.svg"/>
+  </a>
+</ng-template>

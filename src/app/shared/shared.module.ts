@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 import { ToolbarComponent } from './toolbar/toolbar.component';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { RouterModule } from '@angular/router';
-import { MenuComponent } from './menu/menu.component';
+import { NavigationComponent } from './navigation/navigation.component';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatListModule } from '@angular/material/list';
 import { ProjectCoverComponent } from './project-cover/project-cover.component';
@@ -15,7 +15,7 @@ import { LayoutTwoColumnsComponent } from './layout-two-columns/layout-two-colum
 @NgModule({
   declarations: [
     ToolbarComponent,
-    MenuComponent,
+    NavigationComponent,
     ProjectCoverComponent,
     TextFadeInBottomComponent,
     LayoutOneColumnComponent,
@@ -23,7 +23,7 @@ import { LayoutTwoColumnsComponent } from './layout-two-columns/layout-two-colum
   ],
     exports: [
         ToolbarComponent,
-        MenuComponent,
+        NavigationComponent,
         ProjectCoverComponent,
         TextFadeInBottomComponent,
         LayoutOneColumnComponent,

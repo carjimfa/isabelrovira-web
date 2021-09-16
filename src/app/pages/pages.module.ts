@@ -7,6 +7,7 @@ import { ProjectListComponent } from './projects/project-list.component';
 import {RouterModule} from '@angular/router';
 import {SharedModule} from '../shared/shared.module';
 import { AboutComponent } from './about/about.component';
+import { MenuComponent } from './menu/menu.component';
 
 
 
@@ -15,7 +16,8 @@ import { AboutComponent } from './about/about.component';
     HomeComponent,
     SingleProjectComponent,
     ProjectListComponent,
-    AboutComponent
+    AboutComponent,
+    MenuComponent
   ],
   imports: [
     CommonModule,

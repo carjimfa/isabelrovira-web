@@ -5,6 +5,7 @@ import { SingleProjectComponent } from './pages/projects/single-project/single-p
 import { ProjectListComponent } from './pages/projects/project-list.component';
 import { AboutComponent } from './pages/about/about.component';
 import {Theme} from './core/theme.service';
+import {MenuComponent} from './pages/menu/menu.component';
 
 const routes: Routes = [
   {
@@ -30,6 +31,10 @@ const routes: Routes = [
     data: {
       theme: Theme.Dark
     }
+  },
+  {
+    path: 'menu',
+    component: MenuComponent
   }
 ];
 
