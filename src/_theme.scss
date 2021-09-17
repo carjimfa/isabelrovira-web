@@ -208,6 +208,13 @@ $darkTheme: map-extend(
   @include components-theme($darkTheme);
   background-color: $dark-background;
   transition: background-color .2s ease-out;
+
+  a.underlined:hover {
+    background-image: url('/assets/hover-menu-dark.svg');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+  }
 }
 
 .light-theme {
@@ -215,6 +222,13 @@ $darkTheme: map-extend(
   @include components-theme($theme);
   background-color: $light-background;
   transition: background-color .2s ease-out;
+
+  a.underlined:hover {
+    background-image: url('/assets/hover-menu-light.svg');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+  }
 }
 
 // Specific component overrides, pieces that are not in line with the general theming

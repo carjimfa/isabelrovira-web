@@ -23,6 +23,11 @@
             color: mat.get-color-from-palette($background, background);
             text-decoration: none;
           }
+
+          a.underlined:hover {
+            background-image: url('/assets/hover-menu-dark.svg');
+            background-size: contain;
+          }
         }
 
         .mat-divider {

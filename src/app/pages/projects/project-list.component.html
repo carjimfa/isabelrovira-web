@@ -7,7 +7,7 @@
       ></app-text-fade-in-bottom>
     </span>
     <ng-container *ngIf="(posts$ | async) as posts">
-      <a class="project-list__item" [routerLink]="'/projects/'+pageTitle+'/'+post.id" *ngFor="let post of posts">
+      <a class="project-list__item underlined" [routerLink]="'/projects/'+pageTitle+'/'+post.id" *ngFor="let post of posts">
         <span class="mat-display-1">{{post.title.rendered}}</span>
         <div class="project-list__item__image">
         </div>
