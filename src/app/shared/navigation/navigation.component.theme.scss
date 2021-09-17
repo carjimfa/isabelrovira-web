@@ -21,6 +21,7 @@
         .mat-list-item {
           a {
             color: mat.get-color-from-palette($background, background);
+            text-decoration: none;
           }
         }
 

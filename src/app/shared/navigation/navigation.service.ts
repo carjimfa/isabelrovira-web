@@ -37,7 +37,7 @@ export class NavigationService {
         {
           label: 'about',
           cssClass: 'about',
-          routerLink: ['about']
+          routerLink: ['/about']
         }
       ]
     }

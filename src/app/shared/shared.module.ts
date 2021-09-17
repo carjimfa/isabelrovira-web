@@ -10,17 +10,19 @@ import { ProjectCoverComponent } from './project-cover/project-cover.component';
 import { TextFadeInBottomComponent } from './text-fade-in-bottom/text-fade-in-bottom.component';
 import { LayoutOneColumnComponent } from './layout-one-column/layout-one-column.component';
 import { LayoutTwoColumnsComponent } from './layout-two-columns/layout-two-columns.component';
+import {NavigationLabelPipe} from './navigation/navigation-label.pipe';
 
 
 @NgModule({
-  declarations: [
-    ToolbarComponent,
-    NavigationComponent,
-    ProjectCoverComponent,
-    TextFadeInBottomComponent,
-    LayoutOneColumnComponent,
-    LayoutTwoColumnsComponent
-  ],
+    declarations: [
+        ToolbarComponent,
+        NavigationComponent,
+        ProjectCoverComponent,
+        TextFadeInBottomComponent,
+        LayoutOneColumnComponent,
+        LayoutTwoColumnsComponent,
+        NavigationLabelPipe
+    ],
     exports: [
         ToolbarComponent,
         NavigationComponent,
