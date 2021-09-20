@@ -1,8 +1,9 @@
 import {AfterViewInit, ChangeDetectionStrategy, Component, OnDestroy, OnInit} from '@angular/core';
-import {NavigationEnd, Router} from '@angular/router';
-import {NavigationService} from './navigation.service';
-import {filter, takeUntil} from 'rxjs/operators';
+import {NavigationEnd, Router, RoutesRecognized} from '@angular/router';
+import {IMenuItem, NavigationService} from './navigation.service';
+import {filter, pairwise, takeUntil} from 'rxjs/operators';
 import {Subject} from 'rxjs';
+import {Location} from '@angular/common';
 
 declare var anime: any;
 
@@ -15,10 +16,17 @@ declare var anime: any;
 export class NavigationComponent implements AfterViewInit, OnDestroy {
   readonly destroyed$ = new Subject();
 
+  isMenuItemActive(item: IMenuItem): boolean {
+    return !!item.routerLink && item.routerLink[0] && this.menuService.currentUrl
+      ? this.menuService.currentUrl.includes(item.routerLink[0].toString())
+      : false;
+  }
+
   constructor(
     private readonly router: Router,
     readonly menuService: NavigationService
-  ) {}
+  ) {
+  }
 
   ngAfterViewInit(): void {
     const elements = [

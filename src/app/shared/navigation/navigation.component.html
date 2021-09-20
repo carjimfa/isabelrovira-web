@@ -13,7 +13,7 @@
               [class.lowercase]="!item.uppercase"
               [routerLink]="item.routerLink"
               [queryParams]="item.queryParams"
-              [routerLinkActive]="'active'"
+              [class.active]="isMenuItemActive(item)"
               [queryParamsHandling]="'merge'"
             >
               {{item.label | navigationLabel}}

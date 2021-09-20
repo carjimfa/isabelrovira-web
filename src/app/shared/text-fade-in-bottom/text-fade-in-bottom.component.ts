@@ -15,8 +15,6 @@ export class TextFadeInBottomComponent implements AfterViewInit {
     return this._text;
   }
   set text(value: string) {
-    console.log('set text');
-    console.log(value);
     if (this._text !== value) {
       this._text = value;
       if (this.firstRender) {

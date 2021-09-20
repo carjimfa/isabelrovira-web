@@ -24,7 +24,8 @@
             text-decoration: none;
           }
 
-          a.underlined:hover {
+          a.underlined:hover,
+          a.underlined.active {
             background-image: url('/assets/hover-menu-dark.svg');
             background-size: contain;
           }

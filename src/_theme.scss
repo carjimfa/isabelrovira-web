@@ -209,7 +209,7 @@ $darkTheme: map-extend(
   background-color: $dark-background;
   transition: background-color .2s ease-out;
 
-  a.underlined:hover {
+  a.underlined:hover, a.underlined.active {
     background-image: url('/assets/hover-menu-dark.svg');
     background-repeat: no-repeat;
     background-position: center;
@@ -223,7 +223,7 @@ $darkTheme: map-extend(
   background-color: $light-background;
   transition: background-color .2s ease-out;
 
-  a.underlined:hover {
+  a.underlined:hover, a.underlined.active {
     background-image: url('/assets/hover-menu-light.svg');
     background-repeat: no-repeat;
     background-position: center;

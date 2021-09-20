@@ -1,6 +1,8 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
-import {Router} from '@angular/router';
+import {Router, RoutesRecognized} from '@angular/router';
+import {Location, PopStateEvent} from '@angular/common';
+import {filter, pairwise} from 'rxjs/operators';
 
 @Injectable({providedIn: 'root'})
 export class NavigationService {
@@ -43,11 +45,27 @@ export class NavigationService {
     }
   ];
 
+  currentUrl?: string;
+
   get isOpened(): boolean {
     return this.router.url.includes('/menu');
   }
 
-  constructor(private readonly router: Router) {}
+  constructor(
+    private readonly router: Router,
+    private readonly location: Location
+  ) {
+    this.location.subscribe((s) => {
+      this.router.events
+        .pipe(
+          filter(e => e instanceof RoutesRecognized),
+          pairwise()
+        )
+        .subscribe((event: any[]) => {
+          this.currentUrl = event[0].urlAfterRedirects;
+        });
+    });
+  }
 }
 
 export interface IMenuItemGroup {
