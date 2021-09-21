@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, HostBinding, OnInit} from '@angular/core';
 import {WordpressApiService} from '../../core/wordpress-api/wordpress-api.service';
 import {environment} from '../../../environments/environment';
 import {Subject} from 'rxjs';
@@ -14,6 +14,8 @@ import {Theme, ThemeService} from '../../core/theme.service';
 export class AboutComponent implements OnInit {
   aboutPage$: Subject<Post> = new Subject<Post>();
   featuredImage$: Subject<Media> = new Subject<Media>();
+
+  @HostBinding('class.dark-theme') isDarkTheme = true;
 
   constructor(private readonly wordpressApiService: WordpressApiService) {}
 
