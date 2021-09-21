@@ -18,3 +18,15 @@ body {
 .lowercase {
   text-transform: lowercase;
 }
+
+@media all and (max-width: 960px){
+  .only-desktop {
+    display: none;
+  }
+}
+
+@media all and (min-width: 960px){
+  .only-mobile {
+    display: none;
+  }
+}

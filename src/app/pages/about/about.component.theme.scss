@@ -3,8 +3,17 @@
 @mixin about-page($theme) {
   $background: map-get($theme, background);
   $foreground: map-get($theme, foreground);
+  $my-typography: mat.define-typography-config();
 
   .about {
     color: mat.get-color-from-palette($foreground, text);
+
+    &__right-column {
+      &__content {
+        a {
+          color: mat.get-color-from-palette($foreground, text);
+        }
+      }
+    }
   }
 }

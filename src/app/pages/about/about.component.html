@@ -1,12 +1,21 @@
 <app-layout-two-columns *ngIf="(aboutPage$ | async) as aboutPage" class="about">
   <div app-layout-two-column-left-column class="about__left-column">
-    <ng-container *ngIf="(featuredImage$ | async) as featuredImage">
-      <img style="display: block; margin: 0 auto; max-width: 45vw;" [attr.src]="featuredImage.source_url"/>
-    </ng-container>
+    <div style="" class="about__left-column__content">
+      <h1 class="uppercase about__left-column__content__title only-mobile">
+        <span>fashion</span>
+        <br>
+        <span>photo-</span>
+        <br>
+        <span>grapher</span>
+      </h1>
+      <ng-container *ngIf="(featuredImage$ | async) as featuredImage">
+        <img style="" [attr.src]="featuredImage.source_url"/>
+      </ng-container>
+    </div>
   </div>
   <div app-layout-two-column-right-column class="about__right-column">
     <div style="" class="about__right-column__content">
-      <h1 class="uppercase about__right-column__content__title">
+      <h1 class="uppercase about__right-column__content__title only-desktop">
         <span>fashion</span>
         <br>
         <span>photo-</span>
@@ -15,9 +24,9 @@
       </h1>
       <div
         [innerHTML]="aboutPage.content.rendered"
-        class="mat-subheading-3 about__right-column__content__about-description">
+        class="mat-h2 about__right-column__content__about-description">
       </div>
-      <div class="about__right-column__content__social-links mat-subheading-3">
+      <div class="about__right-column__content__social-links mat-h2">
         <a href="https://www.instagram.com/isabelrovirasalvador/">instagram</a>
         <span>/</span>
         <a href="mailto:isabelrovira.ph@gmail.com">email me</a>
