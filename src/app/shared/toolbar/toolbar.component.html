@@ -6,7 +6,8 @@
     </h1>
     <span class="toolbar__menu-button">
       <a [routerLink]="'/menu'" *ngIf="!menuService.isOpened else closeMenu">
-        <img src="/assets/menu.svg"/>
+        <img *ngIf="!themeService.isDarkTheme" src="/assets/menu.svg"/>
+        <img *ngIf="themeService.isDarkTheme" src="/assets/menu_white.svg"/>
       </a>
     </span>
   </mat-toolbar-row>

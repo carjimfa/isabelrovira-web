@@ -8,7 +8,9 @@
         <mat-list-item class="uppercase" *ngFor="let item of itemGroup.menuItems">
           <h1 style="text-align: center; width: 100%;">
             <a
-              class="mat-display-3 {{item.cssClass}} underlined"
+              class="{{item.cssClass}} underlined"
+              [class.mat-display-3]="!windowService.isMobile"
+              [class.mat-display-2]="windowService.isMobile"
               [class.uppercase]="item.uppercase"
               [class.lowercase]="!item.uppercase"
               [routerLink]="item.routerLink"

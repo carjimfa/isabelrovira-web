@@ -5,20 +5,21 @@ import { Post } from '../../../core/wordpress-api/post';
 import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
 import { Project } from '../../../core/project';
+import {WindowService} from '../../../core/window.service';
 
 @Component({
   selector: 'app-single-project',
   templateUrl: './single-project.component.html',
   styleUrls: ['./single-project.component.scss']
 })
-export class SingleProjectComponent implements OnDestroy, AfterViewInit {
+export class SingleProjectComponent implements OnDestroy {
   project$: Subject<Project> = new Subject<Project>();
   destroyed$ = new Subject();
-  windowWidth = 0;
 
   constructor(
     private readonly route: ActivatedRoute,
-    private readonly wordpressApiService: WordpressApiService
+    private readonly wordpressApiService: WordpressApiService,
+    readonly windowService: WindowService
   ) {
     const id = route.snapshot.params.id;
 
@@ -60,16 +61,8 @@ export class SingleProjectComponent implements OnDestroy, AfterViewInit {
     return parser.parseFromString(source, 'text/html');
   }
 
-  ngAfterViewInit(): void {
-    this.windowWidth = document.body.clientWidth;
-  }
-
   ngOnDestroy(): void {
     this.destroyed$.next();
     this.destroyed$.unsubscribe();
-  }
-
-  onWindowResize($event: any): void {
-    this.windowWidth = $event.target.outerWidth;
   }
 }

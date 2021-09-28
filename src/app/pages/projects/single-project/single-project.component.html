@@ -1,7 +1,10 @@
 <app-layout-one-column #layoutOneColumnComponent>
   <div app-layout-one-column-content *ngIf="this.project$ | async as project" class="single-post">
     <div class="single-post__header">
-      <h1 class="mat-display-4">{{project.title}}</h1>
+      <h1
+        [class.mat-display-4]="!windowService.isMobile"
+        [class.mat-display-3]="windowService.isMobile"
+      >{{project.title}}</h1>
     </div>
     <div class="single-post__publication-logo" *ngIf="project.properties?.publication && project.properties?.publication_logo_url">
       <p class="mat-headline">Published on</p>
@@ -15,9 +18,8 @@
       </span>
     </div>
     <div class="single-post__content"
-         [class.single-post__content-1-column]="windowWidth <= 960"
-         [class.single-post__content-2-column]="windowWidth > 960"
-         (window:resize)="onWindowResize($event)">
+         [class.single-post__content-1-column]="windowService.isMobile"
+         [class.single-post__content-2-column]="!windowService.isMobile">
     <span *ngFor="let image of project.images">
        <img [src]="image"/>
     </span>

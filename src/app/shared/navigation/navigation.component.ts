@@ -4,6 +4,7 @@ import {IMenuItem, NavigationService} from './navigation.service';
 import {filter, pairwise, takeUntil} from 'rxjs/operators';
 import {Subject} from 'rxjs';
 import {Location} from '@angular/common';
+import {WindowService} from '../../core/window.service';
 
 declare var anime: any;
 
@@ -24,7 +25,8 @@ export class NavigationComponent implements AfterViewInit, OnDestroy {
 
   constructor(
     private readonly router: Router,
-    readonly menuService: NavigationService
+    readonly menuService: NavigationService,
+    readonly windowService: WindowService
   ) {
   }
 

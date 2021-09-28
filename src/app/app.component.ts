@@ -1,7 +1,8 @@
-import { Component, HostBinding } from '@angular/core';
+import {AfterViewInit, Component, HostBinding} from '@angular/core';
 import { Theme, ThemeService } from './core/theme.service';
 import {ActivatedRoute, ActivationStart, OutletContext, Router, RouterOutlet} from '@angular/router';
 import {FADE_IN_TOOLBAR, FADE_TRANSITION} from './shared/animations';
+import {WindowService} from './core/window.service';
 
 @Component({
   selector: 'app-root',
@@ -9,7 +10,7 @@ import {FADE_IN_TOOLBAR, FADE_TRANSITION} from './shared/animations';
   styleUrls: ['./app.component.scss'],
   animations: [ FADE_IN_TOOLBAR, FADE_TRANSITION ]
 })
-export class AppComponent {
+export class AppComponent implements AfterViewInit {
   title = 'isabelrovira-web';
 
   @HostBinding('class')
@@ -18,7 +19,8 @@ export class AppComponent {
   constructor(
     private readonly themeService: ThemeService,
     private readonly route: ActivatedRoute,
-    private readonly router: Router
+    private readonly router: Router,
+    private readonly windowService: WindowService
   ) {
     this.themeService.themeState$.subscribe((t) => {
       this.cssClass = t;
@@ -34,6 +36,10 @@ export class AppComponent {
         }
       }
     });
+  }
+
+  ngAfterViewInit(): void {
+    this.windowService.afterViewInit();
   }
 
   public getRouterOutletState(outlet: RouterOutlet): ActivatedRoute | string {

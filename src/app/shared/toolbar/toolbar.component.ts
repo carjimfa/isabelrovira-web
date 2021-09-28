@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { NavigationService } from '../navigation/navigation.service';
 import {Location} from '@angular/common';
+import {ThemeService} from '../../core/theme.service';
 
 @Component({
   selector: 'app-toolbar',
@@ -11,7 +12,8 @@ export class ToolbarComponent {
 
   constructor(
     readonly menuService: NavigationService,
-    readonly location: Location) {}
+    readonly location: Location,
+    readonly themeService: ThemeService) {}
 
   goBack(): void {
     this.location.back();
