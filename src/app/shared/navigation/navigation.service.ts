@@ -25,7 +25,7 @@ export class NavigationService {
           uppercase: true
         },
         {
-          label: 'lifestyle&portraits',
+          label: 'lifestyle & portraits',
           cssClass: 'lifestyle',
           routerLink: ['/projects/lifestyle-portraits'],
           queryParams: {categories: [4]},

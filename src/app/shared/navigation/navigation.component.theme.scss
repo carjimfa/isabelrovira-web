@@ -24,10 +24,14 @@
             text-decoration: none;
           }
 
-          a.underlined:hover,
-          a.underlined.active {
+          h1.underlined:hover,
+          h1.underlined.active {
             background-image: url('/assets/hover-menu-dark.svg');
             background-size: contain;
+            background-repeat: no-repeat;
+            background-position: center;
+
+            word-break: keep-all;
           }
         }
 
