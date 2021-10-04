@@ -10,7 +10,8 @@ import { ProjectCoverComponent } from './project-cover/project-cover.component';
 import { TextFadeInBottomComponent } from './text-fade-in-bottom/text-fade-in-bottom.component';
 import { LayoutOneColumnComponent } from './layout-one-column/layout-one-column.component';
 import { LayoutTwoColumnsComponent } from './layout-two-columns/layout-two-columns.component';
-import {NavigationLabelPipe} from './navigation/navigation-label.pipe';
+import { NavigationLabelPipe } from './navigation/navigation-label.pipe';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 
 @NgModule({
@@ -36,7 +37,8 @@ import {NavigationLabelPipe} from './navigation/navigation-label.pipe';
       MatToolbarModule,
       RouterModule,
       MatDialogModule,
-      MatListModule
+      MatListModule,
+      BrowserAnimationsModule
     ]
 })
 export class SharedModule { }

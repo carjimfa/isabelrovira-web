@@ -41,6 +41,15 @@ $light-dividers: rgba(white, 0.12);
 $light-focused: rgba(white, 0.12);
 
 
+// Menu Theme text
+$menu-text: #f0ece8;
+$menu-primary-text: $menu-text;
+$menu-accent-text: rgba(white, 0.7);
+$menu-disabled-text: rgba(white, 0.5);
+$menu-dividers: rgba(white, 0.12);
+$menu-focused: rgba(white, 0.12);
+
+
 // Background config
 // Light bg
 $light-background:    #f0ece8;
@@ -61,6 +70,13 @@ $dark-bg-lighter-20:  lighten($dark-background, 20%);
 $dark-bg-lighter-30:  lighten($dark-background, 30%);
 $light-bg-alpha-4:    rgba(#f0ece8, 0.04);
 $light-bg-alpha-12:   rgba(#f0ece8, 0.12);
+
+// Menu bg
+$menu-background: $dark-primary-text;
+$menu-bg-lighter-5:   lighten($menu-background, 5%);
+$menu-bg-lighter-10:  lighten($menu-background, 10%);
+$menu-bg-lighter-20:  lighten($menu-background, 20%);
+$menu-bg-lighter-30:  lighten($menu-background, 30%);
 
 // Compute font config
 @include mat.core($fontConfig);
@@ -192,6 +208,48 @@ $darkTheme: map-extend(
   )
 );
 
+$menuTheme: map-extend(
+    mat.define-dark-theme($theme-primary, $theme-accent, $theme-warn),
+    (
+      background: (
+        background: $menu-background,
+        status-bar: $menu-bg-lighter-20,
+        app-bar: $menu-bg-lighter-5,
+        hover: $light-bg-alpha-4,
+        card: $menu-bg-lighter-5,
+        dialog: $menu-bg-lighter-5,
+        tooltip: $menu-bg-lighter-20,
+        disabled-button: $light-bg-alpha-12,
+        raised-button: $menu-bg-lighter-5,
+        focused-button: rgba(white, 0.12),
+        selected-button: $menu-bg-lighter-20,
+        selected-disabled-button: $menu-bg-lighter-30,
+        disabled-button-toggle: $menu-bg-lighter-10,
+        unselected-chip: $menu-bg-lighter-20,
+        disabled-list-option: $menu-bg-lighter-10,
+        menu: $dark-primary-text
+      ),
+      foreground: (
+        base:              $menu-text,
+        divider:           rgba(white, 0.12),
+        dividers:          rgba(white, 0.12),
+        disabled:          rgba(white, 0.5),
+        disabled-button:   rgba($light-text, 0.3),
+        disabled-text:     rgba(white, 0.5),
+        elevation:         black,
+        hint-text:         rgba(white, 0.5),
+        secondary-text:    $menu-accent-text,
+        accent-text:       $menu-accent-text,
+        icon:              $menu-text,
+        icons:             $menu-text,
+        text:              $menu-text,
+        slider-min:        $menu-text,
+        slider-off:        rgba($menu-text, 0.3),
+        slider-off-active: rgba($menu-text, 0.3)
+      )
+    )
+);
+
 // Theme Init
 //@include mat.all-component-themes($theme);
 
@@ -225,6 +283,21 @@ $darkTheme: map-extend(
 
   a.underlined:hover, a.underlined.active {
     background-image: url('/assets/hover-menu-light.svg');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+  }
+}
+
+.menu-theme {
+  @include mat.all-component-themes($menuTheme);
+  @include components-theme($menuTheme);
+  background-color: $dark-primary-text;
+  color: $light-background;
+  transition: background-color .2s ease-out;
+
+  h1.underlined:hover, h1.underlined.active {
+    background-image: url('/assets/hover-menu-dark.svg');
     background-repeat: no-repeat;
     background-position: center;
     background-size: contain;

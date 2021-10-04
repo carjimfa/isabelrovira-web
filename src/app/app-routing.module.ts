@@ -34,7 +34,10 @@ const routes: Routes = [
   },
   {
     path: 'menu',
-    component: MenuComponent
+    component: MenuComponent,
+    data: {
+      theme: Theme.Menu
+    }
   }
 ];
 

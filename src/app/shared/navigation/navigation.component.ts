@@ -5,6 +5,7 @@ import {filter, pairwise, takeUntil} from 'rxjs/operators';
 import {Subject} from 'rxjs';
 import {Location} from '@angular/common';
 import {WindowService} from '../../core/window.service';
+import {FADE_TRANSITION} from '../animations';
 
 declare var anime: any;
 
@@ -12,6 +13,7 @@ declare var anime: any;
   selector: 'app-navigation',
   templateUrl: './navigation.component.html',
   styleUrls: ['./navigation.component.scss'],
+  animations: [FADE_TRANSITION],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class NavigationComponent implements AfterViewInit, OnDestroy {
@@ -40,10 +42,10 @@ export class NavigationComponent implements AfterViewInit, OnDestroy {
       'about'
     ];
 
-    this.divideInSpan();
+    //this.divideInSpan();
 
     elements.forEach((elementClass) => {
-      const selector = `.${ elementClass } .letter`;
+      const selector = `.${ elementClass }`;
 
       anime.timeline({loop: false})
         .add({
@@ -90,7 +92,7 @@ export class NavigationComponent implements AfterViewInit, OnDestroy {
     const textWrappers = document.querySelectorAll('.menu__sides__navigation mat-list-item h1 a');
     textWrappers.forEach((e) => {
       if (!!e && !!e.textContent) {
-        e.innerHTML = e.textContent.replace(/./g, '&shy;<span class=\'letter\' style=\'display:inline-block;white-space:pre;\'>$&</span>');
+        e.innerHTML = e.textContent.replace(/./g, '<span class=\'letter\' style=\'display:inline-block;white-space:pre;\'>$&</span>&shy;');
       }
     });
   }

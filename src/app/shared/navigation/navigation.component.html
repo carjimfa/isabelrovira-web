@@ -5,7 +5,7 @@
     </div>
     <mat-list class="menu__sides__navigation">
       <ng-container *ngFor="let itemGroup of menuService.menuItemGroups">
-        <mat-list-item class="uppercase" *ngFor="let item of itemGroup.menuItems">
+        <mat-list-item class="uppercase" *ngFor="let item of itemGroup.menuItems" [@fadeTransition]="true">
           <h1 class="underlined" style="text-align: center; width: 100%;">
             <a
               class="{{item.cssClass}} underlined"

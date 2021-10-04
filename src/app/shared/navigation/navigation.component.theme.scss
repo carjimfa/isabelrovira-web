@@ -5,38 +5,22 @@
   $foreground: map-get($theme, foreground);
 
   .menu {
-    background-color: mat.get-color-from-palette($foreground, text);
-
-    h1 {
-      color: mat.get-color-from-palette($background, background);
-    }
-
-    .mat-dialog-container{
-      border-color: mat.get-color-from-palette($foreground, text);
-      background-color: mat.get-color-from-palette($foreground, text);
-    }
-
     &__sides {
       &__navigation.mat-list {
         .mat-list-item {
           a {
-            color: mat.get-color-from-palette($background, background);
+            color: mat.get-color-from-palette($foreground, text);
             text-decoration: none;
           }
 
           h1.underlined:hover,
           h1.underlined.active {
-            background-image: url('/assets/hover-menu-dark.svg');
-            background-size: contain;
-            background-repeat: no-repeat;
-            background-position: center;
-
             word-break: keep-all;
           }
         }
 
         .mat-divider {
-          border-top-color: mat.get-color-from-palette($background, background);
+          border-top-color: mat.get-color-from-palette($foreground, text);
         }
       }
     }

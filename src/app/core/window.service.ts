@@ -18,7 +18,6 @@ export class WindowService {
   }
 
   private onWindowResize($event: any): void {
-    console.log($event);
     this.windowWidth = $event.target.outerWidth;
   }
 }

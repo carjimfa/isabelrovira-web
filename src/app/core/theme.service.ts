@@ -18,5 +18,6 @@ export class ThemeService {
 
 export enum Theme {
   Light = 'light-theme',
-  Dark = 'dark-theme'
+  Dark = 'dark-theme',
+  Menu = 'menu-theme'
 }
