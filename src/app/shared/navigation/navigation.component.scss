@@ -76,6 +76,15 @@
         ::ng-deep .mat-list-item-content {
           justify-content: center;
         }
+
+        a.underlined.active, a.underlined:hover {
+          background-image: url('/assets/hover-menu-dark.svg');
+          background-repeat: no-repeat;
+          background-position: center;
+          background-size: contain;
+          animation: backgroundIMG 2s ease-in-out 2s;
+          animation-fill-mode: forwards;
+        }
       }
     }
   }

@@ -55,16 +55,16 @@ export class NavigationService {
     private readonly router: Router,
     private readonly location: Location
   ) {
-    this.location.subscribe((s) => {
-      this.router.events
-        .pipe(
-          filter(e => e instanceof RoutesRecognized),
-          pairwise()
-        )
-        .subscribe((event: any[]) => {
-          this.currentUrl = event[0].urlAfterRedirects;
-        });
-    });
+    this.currentUrl = this.location.path()
+
+    this.router.events
+      .pipe(
+        filter(e => e instanceof RoutesRecognized),
+        pairwise()
+      )
+      .subscribe((event: any[]) => {
+        this.currentUrl = event[0].urlAfterRedirects;
+      });
   }
 }
 

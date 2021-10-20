@@ -61,18 +61,6 @@ export class NavigationComponent implements AfterViewInit, OnDestroy {
         });
     });
 
-    anime.timeline({loop: false})
-      .add({
-        targets: `mat-divider`,
-        translateY: [40, 0],
-        translateZ: 0,
-        opacity: [0, 1],
-        easing: 'easeOutExpo',
-        duration: 750,
-        delay: (el: any, i: any) => {
-          return 250;
-        },
-      });
 
     anime.timeline({loop: false})
       .add({

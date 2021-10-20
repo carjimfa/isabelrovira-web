@@ -130,7 +130,7 @@ $theme: map-extend(
       background: (
         background:               $light-background,
         status-bar:               $light-bg-darker-20,
-        app-bar:                  $light-bg-darker-5,
+        app-bar:                  transparent,
         hover:                    $dark-bg-alpha-4,
         card:                     $light-bg-lighter-5,
         dialog:                   $light-bg-lighter-5,
@@ -172,7 +172,7 @@ $darkTheme: map-extend(
     background: (
       background: $dark-background,
       status-bar: $dark-bg-lighter-20,
-      app-bar: $dark-bg-lighter-5,
+      app-bar: transparent,
       hover: $light-bg-alpha-4,
       card: $dark-bg-lighter-5,
       dialog: $dark-bg-lighter-5,
@@ -214,7 +214,7 @@ $menuTheme: map-extend(
       background: (
         background: $menu-background,
         status-bar: $menu-bg-lighter-20,
-        app-bar: $menu-bg-lighter-5,
+        app-bar: transparent,
         hover: $light-bg-alpha-4,
         card: $menu-bg-lighter-5,
         dialog: $menu-bg-lighter-5,
@@ -295,13 +295,6 @@ $menuTheme: map-extend(
   background-color: $dark-primary-text;
   color: $light-background;
   transition: background-color .2s ease-out;
-
-  h1.underlined:hover, h1.underlined.active {
-    background-image: url('/assets/hover-menu-dark.svg');
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: contain;
-  }
 }
 
 // Specific component overrides, pieces that are not in line with the general theming
